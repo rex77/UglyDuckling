@@ -1,0 +1,20 @@
+
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="board/layout/basic">
+<meta charset="utf-8" />
+<th:block layout:fragment="title">
+	<title>this is 404 Error page</title>
+</th:block>
+
+<th:block layout:fragment="content">
+	<h1>500 ERROR!!</h1>
+	<p>
+		예원이를 부르세요 <br> 만약 예원이가 응답하지 않으면 <br> 1.아즈사씨를 불러 유혹합니다 <br>
+		2.병원으로 보냅니다 <br> 3.니가 코딩합니다 <br> <br> 아쉽게도 스택트레이스는
+		못주겠네요 <br> 일단 이 페이지가 나왔다는건 스프링 부트에서 /error로 URI가 보내졌다는 뜻입니다.
+	</p>
+</th:block>
+
+</html>

@@ -1,0 +1,120 @@
+body{
+  color:black;
+}
+
+.community-title{
+	margin:0 0 0 2px;
+}
+
+
+p{
+	margin-bottom:0;
+}
+
+.community-title a{
+  color:#16a085;
+}
+
+.community-title a:hover{
+  color:#16a085;
+  text-decoration:none;
+}
+
+.post-list{
+  float:right;
+  padding:3px 8px;
+}
+
+.post-list a, .post-list a:hover {
+	color:black;
+	text-decoration:none;
+}
+
+.post-title{
+  font-size:22px;
+  font-weight: 900;
+}
+
+.user-circle{
+  color:gray;
+  font-size:35px;
+}
+
+ul{
+  list-style: none;
+  margin:0px; padding:0px;
+}
+
+.comment{
+  font-size:17px;
+  font-weight: bold;
+}
+
+.user-box, .comment-box{
+  padding:8px 0 0 10px;
+}
+
+.nick-box, .comment-nick-box{
+  font-size:15px;
+  font-weight:bold;
+}
+
+.info-box, .comment-info-box{
+  font-size:12px;
+  color:gray;
+}
+
+.comment-text-box{
+  font-size:15px;
+}
+
+.hrr{
+  margin: 20px 0 0 0;
+}
+
+.comment-writer{
+  border: solid 2px;
+  border-radius:5px;
+  color:rgb(219, 219, 219);
+  padding :10px;
+  margin: 20px 0 0 0;
+}
+
+.comment-writer-name{
+  padding: 0 0 0 2px;
+  color:black;
+  font-weight: 500;
+}
+
+.comment-inbox-text{
+  margin: 8px 0 0 0;
+  border:none;
+  outline:none;
+  width:100%;
+  height:70px;
+  font-size:14px;
+  overflow: visible;
+  resize:none;
+}
+
+.comment-counter{
+  float:right;
+  color:#aaa;
+  font-size:13px;
+}
+
+.comment-attach{
+  overflow:auto;
+}
+
+.comment-enter{
+  float:right;
+  color:#aaa;
+  font-size:14px;
+  padding: 0 10px;
+}
+
+.comment-enter:hover{
+  color:#aaa;
+  text-decoration: none;
+}

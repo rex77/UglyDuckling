@@ -1,0 +1,92 @@
+
+.status{
+  font-size:30px;
+  font-weight: bold;
+}
+
+.status a:hover, .status a{
+  color:rgba(40, 176, 130, 1);
+  text-decoration: none;
+}
+
+.unit-title{
+  color:black;
+  font-size:23px;
+  padding:2%;
+}
+
+.button-div i{
+  color:black;
+}
+
+.aa{
+  padding:10% 0 0 0;
+}
+
+.bb{
+  padding:0 0 0 10%;
+}
+
+.status-div{
+  display:inline-block;
+  width:15%;
+}
+
+.unit-div{
+ display:inline-block;
+ width:70%;
+}
+
+.button-div{
+  display:inline-block;
+  width:12%;
+  text-align:right;
+}
+
+.video-container{
+
+  padding:15px;
+}
+
+@media screen and (max-width:968px){
+  .status-div{
+    width:19%;
+  }
+
+  .unit-div{
+   width:60%;
+  }
+
+  .button-div{
+    width:18%;
+  }
+}
+
+@media screen and (max-width:756px){
+  .status a{
+    margin : 0 0 0 10%;
+  }
+  .status{
+    font-size:25px;
+  }
+  .status-div{
+    width:17%;
+  }
+  .unit-title{
+    font-size:17px;
+    padding:4% 0 0 10%;
+  }
+  .unit-div{
+   width:61%;
+  }
+  .button-div{
+    font-size:14px;
+    width:15%;
+  }
+  .aa{
+    padding:5% 0 0 0;
+  }
+  .bb{
+    margin:0 0 0 5%;
+  }
+}

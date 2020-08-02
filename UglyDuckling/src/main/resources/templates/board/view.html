@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout/basic">
+<th:block layout:fragment="title">
+	<title>this is view page</title>
+</th:block>
+
+<th:block layout:fragment="search">
+	<div th:replace="fragments/common :: search"></div>
+</th:block>
+
+<th:block layout:fragment="content">
+
+	<div class="container" th:object="${board}">
+		<div class="containerbox">
+
+			<div class="post-info">
+				<span class="community-title"><a href="/board/list.do">자유게시판</a></span>
+
+				<span class="post-list btn btn-light"><a
+					href="/board/list.do">목록</a></span> <span class="post-list btn btn-light"><a
+					th:onclick="deleteBoard([[ ${board.idx} ]], [[ *{makeQueryString(currentPageNo)} ]])">삭제</a></span>
+
+				<span class="post-list btn btn-light" th:object="${params}"><a
+					th:href="|@{/board/write.do}*{makeQueryString(currentPageNo)}&idx=${board.idx}|">수정</a></span>
+
+
+			</div>
+
+			<p class="post-title" th:text="*{title}">
+		</div>
+
+		<div class="row comment-box">
+			<div class="user-circle">
+				<i class="fa fa-user-circle"></i>
+			</div>
+			<div class="user-box">
+				<div class="nick-box" th:text="*{writer}"></div>
+				<div class="info-box">
+					<span th:text="*{#temporals.format( insertTime, 'yyyy-MM-dd' )}"></span>
+					<span>조회 </span><span th:text="*{viewCnt}"></span>
+				</div>
+			</div>
+		</div>
+
+		<hr>
+		<br>
+
+		<div class="col-sm-12" th:text="*{content}"></div>
+		<br> <br>
+
+		<div class="">
+			<span class="mr-3"><i class="fa fa-heart"> 좋아요 0</i></span> <span
+				class=""><i class="fa fa-comments"> 댓글 0</i></span>
+		</div>
+
+		<hr>
+
+		<div class="comment">댓글</div>
+
+		<ul>
+			<li>
+				<div class="row comment-box">
+					<div class="user-circle">
+						<i class="fa fa-user-circle"></i>
+					</div>
+					<div class="user-box">
+						<div class="comment-nick-box">아스파라거스</div>
+						<div class="comment-text-box">𝙒𝙝𝙮𝙧𝙖𝙣𝙤...
+							𝙒𝙝𝙮𝙧𝙖𝙣𝙤...</div>
+						<div class="comment-info-box">2020.07.16 14:25 답글쓰기</div>
+					</div>
+				</div>
+			</li>
+			<hr class="hrr">
+			<li></li>
+		</ul>
+
+		<div class="comment-writer">
+			<div class="comment-inbox">
+				<span class="comment-writer-name">aspie</span> <span
+					class="comment-counter">(0/150)</span>
+				<textarea class="comment-inbox-text" placeholder="댓글을 남겨보세요"></textarea>
+			</div>
+			<div class="comment-attach">
+				<a href="" class="comment-enter">등록</a>
+			</div>
+		</div>
+	</div>
+
+</th:block>
+
+<th:block layout:fragment="add-content">
+
+</th:block>
+
+<th:block layout:fragment="css">
+	<link th:href="@{/css/sb-admin-2.css}" rel="stylesheet">
+	<link th:href="@{/css/Community_Detail.css}" rel="stylesheet">
+</th:block>
+
+<th:block layout:fragment="script">
+	<script th:inline="javascript">
+			/*<![CDATA[*/
+
+			function deleteBoard(idx, queryString) {
+
+	if (confirm(idx + "번 게시글을 삭제할까요?")) {
+		var uri = /*[[ @{/board/delete.do} ]]*/;
+		var html = "";
+
+		html += '<form name="dataForm" action="'+uri+'" method="post">';
+		html += '<input type="hidden" name="idx" value="'+idx+'" />';
+
+		/*[- 쿼리 스트링을 오브젝트 형태로 변환 -]*/
+		queryString = new URLSearchParams(queryString);
+		queryString.forEach(function(value, key) {
+			if (isEmpty(value) == false) {
+				html += '<input type="hidden" name="' + key + '" value="' + value + '" />';
+			}
+		});
+
+		html += '</form>';
+
+		$("body").append(html);
+		document.dataForm.submit();
+	}
+}
+			$(function() {
+				$('.comment-inbox-text').keyup(
+						function(e) {
+							var content = $(this).val();
+							$('.comment-counter').html(
+									"(" + content.length + "/150)");
+							$('.comment-enter').css("color", "rgb(15, 186, 0)")
+									.css("background-color", "rgb(189, 244, 197)")
+									.css("padding", "5px").css("border-radius",
+											"3px");
+
+							if (content.length > 150) {
+								alert("150자까지 작성할 수 있습니다.");
+								$(this).val(content.substring(0, 150));
+								$('.comment-counter').html("(150/150)");
+							}
+						});
+			});	
+			
+			/*[- end of function -]*/
+
+			/*]]>*/
+		</script>
+</th:block>
+</html>

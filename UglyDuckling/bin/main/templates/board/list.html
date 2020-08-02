@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout/basic">
+<meta charset="utf-8">
+
+<th:block layout:fragment="title">
+	<title>this is list page</title>
+</th:block>
+
+<th:block layout:fragment="search">
+	<div th:replace="fragments/common :: search"></div>
+</th:block>
+
+<th:block layout:fragment="content">
+	<div class="table-responsive clearfix">
+
+		<div class="community-title offset-1"><a href="/board/list.do">자유게시판</a></div>
+		<div class="table-box">
+			<table
+				class="table col-10 offset-1 table-sm table-hover table-condensed">
+				<colgroup>
+					<col width="100px" />
+
+				</colgroup>
+				<thead>
+					<tr>
+						<th>글번호</th>
+						<th>제목</th>
+						<th>작성자</th>
+						<th>작성일</th>
+						<th>조회수</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="line" 
+					th:if="${not #lists.isEmpty( boardList )}"
+						th:each="row : ${boardList}">
+						<td scope="row"
+							th:text="${#strings.equals( row.noticeYn, 'Y' ) ? '공지' : row.idx}"></td>
+						<td class="text-left"><a class="content-title"
+							th:href="|@{/board/view.do}${params.makeQueryString(params.currentPageNo)}&idx=${row.idx}|"
+							th:text="${row.title}"></a></td>
+						<td th:text="${row.writer}"></td>
+						<td th:text="${#temporals.format( row.insertTime, 'yyyy-MM-dd' )}"></td>
+						<td th:text="${row.viewCnt}"></td>
+					</tr>
+					<tr th:unless="${not #lists.isEmpty( boardList )}">
+						<td colspan="5">조회된 결과가 없습니다.</td>
+					</tr>
+				</tbody>
+
+			</table>
+		</div>
+
+		<!-- 글쓰기 버튼 -->
+
+		<div class="ww">
+			<div class="offset-10" id="write-btn">
+				<i class="fa fa-pencil"> <a th:href="@{/board/write.do}">글쓰기</a></i>
+			</div>
+		</div>
+
+		<th:block layout:fragment="paging">
+			<nav th:replace="fragments/common :: pagination"></nav>
+		</th:block>
+
+	</div>
+</th:block>
+
+<th:block layout:fragment="css">
+	<link th:href="@{/css/Community_Board.css}" rel="stylesheet">
+	<link th:href="@{fontawesome-free/css/all.min.css}" rel="stylesheet"
+		type="text/css">
+</th:block>
+
+<th:block layout:fragment="script">
+	<script th:src="@{scripts/sb-admin-2.min.js}"></script>
+	<script th:inline="javascript">
+		/*<![CDATA[*/
+
+		function movePage(uri, queryString) {
+			location.href = uri + queryString;
+		}
+
+		function searchBoard(form) {
+			/*[- 드롭다운이 아닌 메인 검색 키워드로 검색했을 때 -]*/
+			if (isEmpty(form) == true) {
+				var searchKeyword = document
+						.getElementById("mainSearchKeyword");
+				if (isEmpty(searchKeyword.value) == true) {
+					alert("키워드를 입력해 주세요.");
+					searchKeyword.focus();
+					return false;
+				}
+
+				form = document.getElementById("searchForm");
+				form.searchKeyword.value = searchKeyword.value;
+				form.submit();
+			}
+
+			if (isEmpty(form.searchKeyword.value) == true) {
+				alert("키워드를 입력해 주세요.");
+				form.searchKeyword.focus();
+				return false;
+			}
+		}
+		/*[- end of function -]*/
+
+		/*]]>*/
+	</script>
+
+</th:block>
+</html>

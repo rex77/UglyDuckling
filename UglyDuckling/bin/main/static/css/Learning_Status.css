@@ -1,0 +1,89 @@
+
+.unit-title{
+font-size:35px;
+font-weight: bold;
+}
+
+.unit-title a, .unit-title:hover{
+  color:rgb(101, 101, 101);
+  text-decoration:none;
+}
+
+
+.bottom-line{
+  border-bottom:1px solid rgb(162, 162, 162);
+}
+
+.progress-section{
+  margin:3% 0 0 0;
+}
+
+.progress{
+  margin: auto;
+  border-radius: 9px;
+  height:13px;
+  width:70%;
+}
+
+.progress-bar{
+  background-color: rgba(40, 176, 130, 1);
+}
+
+.progress-text{
+  font-size: 15px;
+  margin: 0.5% 0 2% 0;
+}
+
+table{
+  margin:0 auto;
+  text-align:left;
+  width:70%;
+}
+
+td{
+  font-size: 24px;
+}
+
+td:visited{
+  color:black;
+}
+
+td a:hover{
+  color:black;
+}
+
+.fa-check{
+  color:rgba(40, 176, 130, 1);
+}
+
+td:nth-child(2){
+  text-align: right;
+}
+
+.line{
+  border-bottom:1px solid rgb(162, 162, 162);
+}
+
+@media screen and (max-width:1058px){
+  td{
+    font-size: 20px;
+  }
+  .progress-text{
+    font-size:13px;
+  }
+}
+
+@media screen and (max-width:756px){
+  .container{
+    padding:0;
+  }
+  .unit-title{
+    padding:0 0 0 20%;
+  }
+  td{
+    font-size: 15px;
+  }
+  .progress-text{
+    font-size:11px;
+  }
+}

@@ -1,0 +1,90 @@
+.container{
+  margin-bottom: 3%
+}
+
+.write-title{
+  font-size:26px;
+  font-weight:900;
+  padding:1%;
+}
+
+.write-title a, .write-title a:hover{
+  color:#16a085;
+  text-decoration: none;
+}
+
+.write-form ul{
+  list-style: none;
+  line-height: 10px;
+  width:100%;
+  margin:0;
+  padding:0;
+  border-spacing:0;
+  margin-bottom: 0;
+  border-collapse:collapse;
+}
+
+.write-list li{
+  border:1px solid rgb(235, 235, 235);
+}
+
+.check-notice, .check-secret{
+  margin: -1% 1% 0 2%;
+  color:black;
+  font-size:12px;
+}
+
+.nick{
+  width:50%;
+}
+
+.subject{
+  width:100%;
+}
+
+input[type="text"]{
+  padding:10px;
+  height:38px;
+  font-size:14px !important;
+  line-height: 18px;
+  resize:none;
+  outline:none;
+  border:none;
+}
+
+.content .write-memo{
+  padding:10px;
+  width:100%;
+  height:370px;
+  line-height:20px;
+  padding-bottom:340px;
+  font-size:15px !important;
+  resize:none;
+  outline:none;
+  border:none;
+}
+
+
+.okbtn{
+  line-height: 30px;
+  font-size:15px;
+  margin: 5px 0 0 0;
+}
+
+
+.write-btn, .write-btn:hover{
+  color:black;
+}
+
+button:focus{
+  outline:none;
+}
+
+.write-ok-btn{
+  padding:8px 0;
+  width:100%;
+  font-weight: bold;
+  border:1px solid rgb(235, 235, 235);
+  color:white;
+  background-color:#189d79;
+}
