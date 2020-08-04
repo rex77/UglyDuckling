@@ -23,11 +23,6 @@ public class BoardController extends UiUtils {
 	@Autowired
 	private BoardService boardService;
 
-	@GetMapping(value="/")
-	public String redirectToList() {
-		return "redirect:/board/list.do";
-		
-	}
 	
 	@GetMapping(value = "/board/write.do")
 	public String openBoardWrite(@ModelAttribute("params") BoardDTO params, @RequestParam(value = "idx", required = false) Long idx, Model model) {
