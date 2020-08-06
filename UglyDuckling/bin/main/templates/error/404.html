@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorator="board/layout/basic">
+	layout:decorator="layout/basic">
 <meta charset="utf-8" />
 <th:block layout:fragment="title">
 	<title>this is 404 Error page</title>
@@ -15,6 +15,20 @@
 		2.병원으로 보냅니다 <br> 3.니가 코딩합니다 <br> <br> 아쉽게도 스택트레이스는
 		못주겠네요 <br> 일단 이 페이지가 나왔다는건 스프링 부트에서 /error로 URI가 보내졌다는 뜻입니다.
 	</p>
+	<div class="errorPage">
+		<p th:text="${'path: ' + path}"></p>
+		<p th:text="${'status: ' + status}"></p>
+		<p th:text="${'timestamp: ' + timestamp}"></p>
+		<p th:text="${'error: ' + error}"></p>
+		<p th:text="${'errors: ' + errors}"></p>
+		<p th:text="${'exception: ' + exception}"></p>
+		<p th:text="${'message: ' + message}"></p>
+		<p th:text="${'trace: ' + trace}"></p>
+	</div>
+
+
 </th:block>
+
+
 
 </html>

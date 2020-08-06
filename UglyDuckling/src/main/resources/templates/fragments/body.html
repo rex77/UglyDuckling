@@ -37,7 +37,7 @@
 			<!-- Sidebar - Brand -->
 			<a
 				class="sidebar-brand d-flex align-items-center justify-content-center"
-				href="/board/list.do">
+				th:href="|@{/board/list.do}|">
 
 				<div class="mx-1">
 					<img th:src="@{/img/ugly-duckling.png}" alt=""
@@ -50,7 +50,7 @@
 
 			<!-- Nav Item - Dashboard -->
 			<li class="nav-item active"><a class="nav-link"
-				href="/board/list.do"> <i class="fas fa-home"></i> <span>HOME</span></a>
+				th:href="|@{/board/list.do}|"> <i class="fas fa-home"></i> <span>HOME</span></a>
 			</li>
 
 			<!-- Divider -->
@@ -74,12 +74,12 @@
 					aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
 					<div class="bg-white py-2 collapse-inner rounded">
 						<h6 class="collapse-header">목차</h6>
-						<a class="collapse-item" href="/lecture/progress.do?idx=1">Unit1</a> <a
-							class="collapse-item" href="/lecture/progress.do?idx=2">Unit2</a> <a
-							class="collapse-item" href="/lecture/progress.do?idx=3">Unit3</a> <a
-							class="collapse-item" href="/lecture/progress.do?idx=4">Unit4</a> <a
-							class="collapse-item" href="/lecture/progress.do?idx=5">Unit5</a> <a
-							class="collapse-item" href="/lecture/progress.do?idx=6">Unit6</a>
+						<a class="collapse-item" th:href="|@{/lecture/progress.do?idx=1}|">Unit1</a> <a
+							class="collapse-item" th:href="|@{/lecture/progress.do?idx=2}|">Unit2</a> <a
+							class="collapse-item" th:href="|@{/lecture/progress.do?idx=3}|">Unit3</a> <a
+							class="collapse-item" th:href="@{/lecture/progress.do?idx=4}">Unit4</a> <a
+							class="collapse-item" th:href="@{/lecture/progress.do?idx=5}">Unit5</a> <a
+							class="collapse-item" th:href="@{/lecture/progress.do?idx=6}">Unit6</a>
 					</div>
 				</div></li>
 
@@ -109,7 +109,7 @@
 
 			<!-- Nav Item - Community -->
 			<li class="nav-item"><a class="nav-link"
-				href="/board/list.do"> <i class="fa fa-comment-o"></i> <span>커뮤니티</span></a>
+				th:href="|@{/board/list.do}|"> <i class="fa fa-comment-o"></i> <span>커뮤니티</span></a>
 			</li>
 
 			<!-- Nav Item - Tables -->
