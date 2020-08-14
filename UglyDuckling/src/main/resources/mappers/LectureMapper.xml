@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ugdk.lecture.mapper.LectureMapper">
+
+	<sql id="LectureColumns">
+		  idx
+		, title
+		, lecture
+		, quiz
+		, quiz2
+		, goal
+		, assignment
+	</sql>
+
+	<select id="getLectureInfo" parameterType="int" resultType="LectureDTO">
+		SELECT
+			<include refid="LectureColumns" />
+		FROM
+			as_content
+		WHERE
+			idx = #{idx}
+	</select>
+
+
+	<select id="getAllLectureInfos" resultType="LectureDTO">
+		SELECT
+			<include refid="LectureColumns" />
+		FROM
+			as_content
+	</select>
+</mapper>
