@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>강의 임시 페이지</title>
+</head>
+<body>
+<h1 th:text="*{lecture.title}"></h1>
+유튜브:<a th:href="*{lecture.lecture}"></a><br>
+퀴즈1:<iframe th:src="*{lecture.quiz}"></iframe><br>
+퀴즈2:<iframe th:src="*{lecture.quiz2}"></iframe>
+</body>
+</html>
