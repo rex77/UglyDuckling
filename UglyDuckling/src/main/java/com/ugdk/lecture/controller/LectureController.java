@@ -19,8 +19,8 @@ public class LectureController {
 	public String openLectureDetail(@RequestParam(value = "idx", required = false, defaultValue="1") int idx, Model model) {
 		LectureDTO lecture;
 		lecture = lectureService.getLectureInfo(idx);
-		model.addAttribute("lecture",lecture);
-		return "lecture/lecture";
+		model.addAttribute("lec",lecture);
+		return "lecture/status";
 		
 		
 	}

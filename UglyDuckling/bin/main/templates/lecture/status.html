@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout/basic">
+<meta charset="utf-8">
+
+<th:block layout:fragment="title">
+	<title>this is progress page</title>
+</th:block>
+
+
+<th:block layout:fragment="content">
+	<div class="container">
+		<div class="col-3">
+
+			<div class="row u-title ">
+				<div class="unit-title">
+					<a href="#">Unit<span th:text="${lec.idx}"></span></a>
+				</div>
+			</div>
+		</div>
+
+
+
+		<div class="text-center">
+			<div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+
+				<div class="preview-box bg-white">
+					<div class="d-block d-md-flex">
+						<div class="preview-img">
+							<img src="img/preview-img.png" style="max-width: 100%" alt="">
+						</div>
+						<div class="preview-text align-self-center">
+
+							<h6>강의 프리뷰 웅앵 설명 어쩌구..</h6>
+
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+
+		<table>
+			<tr class="line">
+				<td><a href="#"
+					th:onclick="'openPage(\''+${lec.lecture}+''\)'">학습하기</a>
+				</td>
+				<td><i class="fa fa-check"></i></td>
+			</tr>
+			<tr class="line">
+				<td><a href="#"
+					th:onclick="window.open(*{lec.quiz},'name','resizable=no width=960 height=480 location=no, directories=no, status=no, toolbar=no min-width:300 min-height:300'); return false">기본문제</a>
+				</td>
+				<td><i class="fa fa-check"></i></td>
+			</tr> 
+			<tr class="line">
+				<td><a href="#"
+					th:onclick="window.open(*{lec.quiz2},'name','resizable=no width=960 height=480 location=no, directories=no, status=no, toolbar=no min-width:300 min-height:300'); return false">심화문제</a>
+				</td>
+				<td><i class="fa fa-check"></i></td>
+			</tr>
+			<tr class="line">
+				<td><a href="Learning_Contents.html"></a></td>
+				<td><i class="fa fa-check"></i></td>
+			</tr>
+			<tr class="line">
+				<td></td>
+				<td><i class=""></i></td>
+			</tr>
+		</table>
+
+	</div>
+
+
+
+</th:block>
+
+
+</th:block>
+<th:block layout:fragment="css">
+	<link th:href="@{/css/Learning_Contents.css}" rel="stylesheet">
+</th:block>
+<th:block layout:fragment="script">
+	<script th:inline="javascript">
+		/*<![CDATA[*/
+
+		function openPage(uri) {
+			window.open(uri,'name','resizable=no width=960 height=480 location=no, directories=no, status=no, toolbar=no min-width:300 min-height:300');
+		}
+		/*[- end of function -]*/
+
+		/*]]>*/
+	</script>
+
+</th:block>
+</html>
