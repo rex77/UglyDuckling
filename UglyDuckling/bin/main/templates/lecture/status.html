@@ -28,11 +28,11 @@
 				<div class="preview-box bg-white">
 					<div class="d-block d-md-flex">
 						<div class="preview-img">
-							<img src="img/preview-img.png" style="max-width: 100%" alt="">
+							<img th:src="@{${'/img/preview'+lec.idx+'.png'}}" style="max-width: 300px" alt="">
 						</div>
 						<div class="preview-text align-self-center">
 
-							<h6>강의 프리뷰 웅앵 설명 어쩌구..</h6>
+							<h6 th:text="${lec.goal}"></h6>
 
 						</div>
 					</div>
@@ -45,19 +45,19 @@
 		<table>
 			<tr class="line">
 				<td><a href="#"
-					th:onclick="'openPage(\''+${lec.lecture}+''\)'">학습하기</a>
+					th:attr="onclick=|openPage('${lec.lecture}')|" >학습하기</a>
 				</td>
 				<td><i class="fa fa-check"></i></td>
 			</tr>
 			<tr class="line">
 				<td><a href="#"
-					th:onclick="window.open(*{lec.quiz},'name','resizable=no width=960 height=480 location=no, directories=no, status=no, toolbar=no min-width:300 min-height:300'); return false">기본문제</a>
+					th:attr="onclick=|openPage('${lec.quiz}')|">기본문제</a>
 				</td>
 				<td><i class="fa fa-check"></i></td>
 			</tr> 
 			<tr class="line">
 				<td><a href="#"
-					th:onclick="window.open(*{lec.quiz2},'name','resizable=no width=960 height=480 location=no, directories=no, status=no, toolbar=no min-width:300 min-height:300'); return false">심화문제</a>
+					th:attr="onclick=|openPage('${lec.quiz2}')|">심화문제</a>
 				</td>
 				<td><i class="fa fa-check"></i></td>
 			</tr>

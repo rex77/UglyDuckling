@@ -34,7 +34,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" th:href="|@{/board/list.do}|">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
 
         <div class="ugly-main-logo mx-1"><img th:src="@{/img/ugly-duckling.png}" alt=""  style="max-width:100%; max-height:100%:"></div>
         <div class="ugly-main-img mx-1"><img th:src="@{/img/dck.png}" alt=""  style="max-width:60%; max-height:60%:"></div>
@@ -200,13 +200,13 @@
                 <h6 class="dropdown-header">
                   Message Center
                 </h6>
-                <a class="dropdown-item d-flex align-items-center" href="#">
+                <a class="dropdown-item d-flex align-items-center" href="#" >
                   <div class="dropdown-list-image mr-3">
                     <img class="rounded-circle" src="https://source.unsplash.com/fn_BT9fwg_E/60x60" alt="">
                     <div class="status-indicator bg-success"></div>
                   </div>
-                  <div class="font-weight-bold">
-                    <div class="text-truncate">aspie님 회원가입을 진심으로 환영합니다</div>
+                  <div  class="font-weight-bold">
+                    <div  class="text-truncate"><span sec:authentication="name"></span>님 회원가입을 진심으로 환영합니다</div>
                     <div class="small text-gray-500">ugly-duckling</div>
                   </div>
                 </a>
@@ -220,7 +220,7 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-3 d-none d-lg-inline text-gray-600 small">aspie</span>
+                <span class="mr-3 d-none d-lg-inline text-gray-600 small"><span  sec:authentication="name"></span></span>
                 <img src="https://img.icons8.com/color/48/000000/user-male-circle.png"/>
               </a>
               <!-- Dropdown - User Information -->
@@ -234,7 +234,7 @@
                   마이페이지
                 </a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                <a class="dropdown-item" href="/member/logout.do">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   로그아웃
                 </a>
@@ -261,31 +261,8 @@
 
 			<th:block layout:fragment="add-content"></th:block>
 
-			<!-- 원래 메인			
-					<div class="main-content">
-						<div class="row row-inline-block small-spacing">
-							<div class="col-xs-12">
-								<div class="box-content">
-									<div class="clearfix">
-										<h4 class="box-title pull-left"></h4>
-
-										<th:block layout:fragment="search"></th:block>
-									</div>
-
-									<th:block layout:fragment="content"></th:block>
-
-									<th:block layout:fragment="paging"></th:block>
-								</div>
-
-								<th:block layout:fragment="add-content"></th:block>
-
-							</div>
-						</div>
-						
- -->
 		</div>
 		<!-- /.main-content -->
-	</div>
 	<!-- /#wrapper -->
 
 

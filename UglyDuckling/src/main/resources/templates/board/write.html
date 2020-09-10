@@ -16,7 +16,7 @@
                 <ul class="write-list">
                   <li class="write-nickname">
                     <div class="write-nick">
-                      <input type="text"  th:field="*{writer}"  class="nick" name="nick" placeholder="닉네임">
+                      <input type="text"  th:field="*{writer}"  class="nick" name="nick" placeholder="닉네임"></input>
                       <label for="" class="check-secret">비밀글</label>
 						<input type="checkbox" class="write-secret" th:value="*{secretYn}" id="secretYn" name="secretYn" th:checked="*{#strings.equals( secretYn, 'Y' )}" />
                     </div>
@@ -32,16 +32,13 @@
                     </div>
                   </li>
                 </ul>
+            <div style="width:100%">
+              <div class="okbtn"><input type="submit" value="확인" class="write-ok-btn">
+              </div>
+            </div>
               </form>
             </div>
 
-          <div>
-            <div style="width:100%">
-              <div class="okbtn">
-                <a  class="write-btn"><input type="submit" value="확인" class="write-ok-btn"></a>
-              </div>
-            </div>
-          </div>
 
         </div>
       </div>

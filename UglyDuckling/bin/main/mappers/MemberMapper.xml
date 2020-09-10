@@ -11,13 +11,24 @@
 		, last_progress
 	</sql>
 
-	<select id="getMemberInfo" parameterType="int" resultType="MemberDTO">
+	<select id="getMemberInfo" parameterType="String" resultType="MemberDTO">
 		SELECT
 			<include refid="MemberColumns" />
 		FROM
 			as_member
 		WHERE
-			idx = #{idx}
+			id = #{id}
 	</select>
 
+	<insert id="saveMember" parameterType="MemberDTO">
+		INSERT INTO as_member (
+			<include refid="MemberColumns" />
+		) VALUES (
+			  #{id}
+			  , #{password}
+			  , #{name}
+			  , #{email}
+			  , 1
+		)
+	</insert>
 </mapper>

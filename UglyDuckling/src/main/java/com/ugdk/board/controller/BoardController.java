@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,7 +16,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.ugdk.board.constant.Method;
 import com.ugdk.board.domain.BoardDTO;
 import com.ugdk.board.service.BoardService;
-import com.ugdk.board.util.UiUtils;
+import com.ugdk.member.domain.MemberDTO;
+import com.ugdk.util.UiUtils;
 
 @Controller
 public class BoardController extends UiUtils {
@@ -27,7 +29,12 @@ public class BoardController extends UiUtils {
 	@GetMapping(value = "/board/write.do")
 	public String openBoardWrite(@ModelAttribute("params") BoardDTO params, @RequestParam(value = "idx", required = false) Long idx, Model model) {
 		if (idx == null) {
-			model.addAttribute("board", new BoardDTO());
+			BoardDTO board = new BoardDTO();
+			Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+			MemberDTO member = (MemberDTO) principal;
+			if(member != null)
+				board.setWriter(member.getName());
+			model.addAttribute("board", board);
 		} else {
 			BoardDTO board = boardService.getBoardDetail(idx);
 			if (board == null || "Y".equals(board.getDeleteYn())) {

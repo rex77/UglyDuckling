@@ -1,4 +1,4 @@
-package com.ugdk.board.util;
+package com.ugdk.util;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
