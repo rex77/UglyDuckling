@@ -18,4 +18,9 @@ public class HomeController {
 			result+="/board/list.do";
 		return result;	
 	}
+	
+	@GetMapping(value="/service.do")
+	public String serviceCenter() {
+		return "home/service-center";
+	}
 }

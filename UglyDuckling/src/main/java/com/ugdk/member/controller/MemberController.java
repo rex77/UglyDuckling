@@ -60,4 +60,9 @@ public class MemberController extends UiUtils {
 	    System.out.println("logout.do");
 	    return "redirect:/";
 	  }
+	
+	@GetMapping(value="/member/mypage.do")
+	public String showMyPage(Model model) {
+		return "redirect:/member/login.do";
+	}
 }
