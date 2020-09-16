@@ -1,0 +1,103 @@
+body{
+  color:black;
+}
+
+.class-task-title{
+  font-size:26px;
+  font-weight: 900;
+  padding:10px;
+}
+
+.class-task-title a, .class-task-title a:hover{
+  color:#16a085;
+  text-decoration: none;
+}
+
+.wrap-contact100 {
+  width: 670px;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+
+.class-task-unit-title{
+  width:80%;
+  height:40px;
+  font-size:18px;
+  font-weight:900;
+  color:black;
+  text-align:center;
+}
+
+
+.task-form{
+  list-style: none;
+  width:60%;
+  margin:auto;
+  padding:0;
+  border-spacing:0;
+  margin-bottom: 0;
+  border-collapse:collapse;
+}
+
+
+
+
+tr{
+  border-bottom:2px solid rgb(177, 174, 174);
+}
+
+td{
+  min-width:60px;
+}
+
+
+
+
+
+.content .write-memo{
+  width:100%;
+  padding:10px;
+
+  line-height:20px;
+  padding-bottom:340px;
+  font-size:15px !important;
+  resize:none;
+  outline:none;
+
+}
+
+
+.write-subject .subject{
+  width:100%;
+  padding:10px;
+
+  height:38px;
+  font-size:14px !important;
+  line-height: 18px;
+  resize:none;
+  outline:none;
+
+}
+
+
+
+
+
+.task-submit-btn{
+  padding: 25px 15px 5px 15px;
+  margin-bottom:30px;
+}
+
+.task-submit-btn span{
+}
+
+.task-submit-btn span input{
+  padding: 5px 15px 5px 15px;
+  border:0px;
+  border-radius: 3px;
+  background-color:#24b095;
+  color:white;
+}

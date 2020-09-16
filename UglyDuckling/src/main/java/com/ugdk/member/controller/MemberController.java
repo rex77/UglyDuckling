@@ -57,7 +57,6 @@ public class MemberController extends UiUtils {
 	@GetMapping(value="/member/logout.do")
 	public String logoutPage(HttpServletRequest request, HttpServletResponse response) {
 	    new SecurityContextLogoutHandler().logout(request, response, SecurityContextHolder.getContext().getAuthentication());
-	    System.out.println("logout.do");
 	    return "redirect:/";
 	  }
 	

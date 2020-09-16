@@ -1,0 +1,135 @@
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout/basic">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Ugly Duckling</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
+
+  <script src="https://use.fontawesome.com/82641925aa.js"></script>
+
+</head>
+
+<body id="page-top">
+<th:block layout:fragment="content">
+        <div class="container">
+          <div class="my-progress">
+            <div class="my-main-progress">
+              <span class="my-main-progress-title">
+                내 과정
+              </span>
+            </div>
+            <div class="my-sub-progress">
+              <span class="my-sub-progress-title">
+                peers 청소년 사회기술훈련
+              </span>
+            </div>
+          </div>
+
+          <div class="progress-box row">
+
+            <div class="col-md-4">
+              <div class="progress-sub-box">
+
+                <div class="progress-box-title">학습목표</div>
+
+
+                    <div class="progress-section">
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" th:aria-valuenow="*{member.last_progress}"
+                        aria-valuemin="0" aria-valuemax="5" style="width:80%">
+                        </div>
+                      </div>
+                    </div>
+
+                      <div class="progress-text text-center">총 5단원 중 <span th:text="*{member.last_progress}" />단원 학습 완료</div>
+
+
+                <div class="week-goal">
+                  <div th:text="*{lecture.idx}">1주차</div>
+                  <div th:text="*{lecture.title}"><정보교환을 위한 규칙></div>
+                </div>
+                <div class="week-goal-box">
+                  <div class="goal-message-box" th:text="*{lecture.goal}">
+                    
+                    <br><br></div>
+                </div>
+
+              </div>
+            </div>
+
+
+            <div class="col-md-4">
+              <div class="progress-sub-box">
+
+                <div class="progress-box-title">학습 현황</div>
+                <div>
+                  <div class="status-message-box">
+                    <div>진행중인 코스:</div>
+                    <div>옳은 대화법에 따른 대화 구성<br><br></div>
+                  </div>
+                  <div class="status-message-box">
+                    <div>다음 진행할 코스:</div>
+                    <div>옳은 대화법에 따른 대화 구성<br><br></div>
+                  </div>
+                  <div class="status-go-btn"><span><a href="">Go></a></span></div>
+                </div>
+
+              </div>
+            </div>
+
+
+            <div class="col-md-4">
+              <div class="progress-sub-box">
+
+                <div class="progress-box-title">클래스 과제</div>
+                <div class="week-goal">
+                  <div>1주차</div>
+                  <div><정보교환을 위한 규칙></div>
+                </div>
+                <div class="class-task-message-box">
+                  친구 3명과 정보교환 규칙에 맞는 대화를 한 후, 그 결과를 바탕으로 프로필 만들기
+                  <br><br><br>
+                </div>
+                <div class="task-submit-go"><span><a href="">과제제출</a></span></div>
+              </div>
+            </div>
+
+
+          </div>
+          <!-- row -->
+        </div>
+        <!-- 컨테이너 -->
+
+</th:block>
+
+
+<th:block layout:fragment="css">
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin-2.css" rel="stylesheet">
+  <link th:href="@{css/main.css}" rel="stylesheet">
+</th:block>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+</body>
+
+</html>

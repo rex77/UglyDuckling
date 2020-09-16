@@ -1,0 +1,150 @@
+html{
+  font-size:16px;
+}
+
+
+.my-progress{
+  width:100%;
+  height:15%;
+  padding:10px;
+}
+
+.my-main-progress-title{
+  font-size:1.8rem;
+  font-weight:900;
+  color:rgb(62, 118, 208);
+}
+
+.my-sub-progress-title{
+  font-size:0.9375rem;
+  color:black;
+}
+
+.progress-box{
+  color:black;
+  padding:10px;
+  max-height:80%;
+}
+
+.progress-sub-box{
+  background-color: rgb(245, 245, 245);
+  min-height:55vh;
+  margin:10px;
+}
+
+
+.progress-box-title{
+  padding:3%;
+  font-size:1.5rem;
+  font-weight:900;
+  color:#16a085;
+}
+
+
+.progress-section{
+  margin:3% 0 0 0;
+}
+
+.progress{
+  margin: auto;
+  border-radius: 9px;
+  height:13px;
+  width:80%;
+}
+
+.progress-bar{
+  background-color: rgba(40, 176, 130, 1);
+}
+
+.progress-text{
+  font-size: 12px;
+  font-weight:600;
+  margin: 0.5% 0 2% 0;
+}
+
+
+
+.week-goal{
+  padding: 0 3% 3% 3%;
+  font-size:1.05rem;
+  font-weight:bold;
+}
+
+.week-goal-box{;
+
+}
+
+.goal-message-box {
+  padding:5px;
+  margin:2% 5% 5% 5%;
+  font-size:0.875rem;
+  font-weight:600;
+  background-color:rgb(230, 230, 230);
+}
+
+.status-message-box{
+  padding:5px;
+  margin:10px;
+  font-size:0.875rem;
+  font-weight:600;
+  background-color:rgb(230, 230, 230);
+}
+
+.status-message-box:nth-child(2){
+  margin: 30px 10px 10px 10px;
+  text-align:right;
+}
+
+.status-go-btn{
+  padding:5%;
+  text-align:right;
+}
+
+.status-go-btn span{
+  padding: 5px 15px 5px 15px;
+  border-radius: 3px;
+  background-color:rgb(43, 193, 120);
+}
+
+.status-go-btn a, .task-submit-go a{
+  color:white;
+}
+
+.class-task-message-box{
+  padding:5px;
+  margin:10px;
+  font-weight:600;
+  background-color: rgb(230, 230, 230);
+}
+
+.task-submit-go{
+  padding: 25px 15px 5px 15px;
+  text-align:right;
+}
+
+.task-submit-go span{
+  padding: 5px 15px 5px 15px;
+  border-radius: 3px;
+  background-color:#24b095;
+}
+
+
+
+@media(max-width:990px){
+  html{
+    font-size:15px;
+  }
+  .goal-message-box{
+      margin:0 5% 5% 5%;
+  }
+}
+
+@media (max-width:767px){html{font-size:17px;}}
+
+@media (max-width:568px){html{font-size:18px;} .status-go-btn{padding:3%;}}
+
+@media (max-width:451px){html{font-size:16px;}}
+
+/* @media (max-width:412px){html{font-size:16px;}} */
+
+@media (max-width:320px){html{font-size:14px;}}

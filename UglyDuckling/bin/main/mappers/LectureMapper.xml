@@ -29,4 +29,11 @@
 		FROM
 			as_content
 	</select>
+	
+	<insert id="submitAssignment" parameterType="AssignmentDTO">
+		INSERT INTO as_assignment
+		(title, content, content_id, member_id)
+		VALUES
+		(#{title},#{content},#{contentId},#{memberId})
+	</insert>
 </mapper>
