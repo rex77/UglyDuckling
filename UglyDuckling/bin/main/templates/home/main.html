@@ -49,18 +49,21 @@
 
                     <div class="progress-section">
                       <div class="progress">
-                        <div class="progress-bar" role="progressbar" th:aria-valuenow="*{member.last_progress}"
-                        aria-valuemin="0" aria-valuemax="5" style="width:80%">
-                        </div>
+                      
+                        <div id="progress-bar" class="progress-bar" role="progressbar"  th:aria-valuenow="*{member.last_progress}"
+                        aria-valuemin="0" aria-valuemax="5" th:style="'width : ' + *{member.last_progress} * 20 + '%; animation: progressbar 2s ease-out;'">
+                        <!-- 
+                        <div id="progress-bar" class="progress-bar" role="progressbar"  th:aria-valuenow="*{member.last_progress}"
+                        aria-valuemin="0" aria-valuemax="5" th:style="'width:' + *{member.last_progress} * 20 +'%;'"> -->
+                        </div>    
                       </div>
                     </div>
-
                       <div class="progress-text text-center">총 5단원 중 <span th:text="*{member.last_progress}" />단원 학습 완료</div>
 
 
                 <div class="week-goal">
-                  <div th:text="*{lecture.idx}">1주차</div>
-                  <div th:text="*{lecture.title}"><정보교환을 위한 규칙></div>
+                  <div><span th:text="*{lecture.idx}"/>주차</div>
+                  <div th:text="*{lecture.title}"></div>
                 </div>
                 <div class="week-goal-box">
                   <div class="goal-message-box" th:text="*{lecture.goal}">
@@ -71,43 +74,45 @@
               </div>
             </div>
 
-
-            <div class="col-md-4">
-              <div class="progress-sub-box">
-
-                <div class="progress-box-title">학습 현황</div>
-                <div>
-                  <div class="status-message-box">
-                    <div>진행중인 코스:</div>
-                    <div>옳은 대화법에 따른 대화 구성<br><br></div>
-                  </div>
-                  <div class="status-message-box">
-                    <div>다음 진행할 코스:</div>
-                    <div>옳은 대화법에 따른 대화 구성<br><br></div>
-                  </div>
-                  <div class="status-go-btn"><span><a href="">Go></a></span></div>
-                </div>
-
-              </div>
-            </div>
-
-
             <div class="col-md-4">
               <div class="progress-sub-box">
 
                 <div class="progress-box-title">클래스 과제</div>
                 <div class="week-goal">
-                  <div>1주차</div>
-                  <div><정보교환을 위한 규칙></div>
+                  <div><span th:text="*{lecture.idx}"/>주차</div>
+                  <div><span th:text="*{lecture.title}"/></div>
                 </div>
-                <div class="class-task-message-box">
-                  친구 3명과 정보교환 규칙에 맞는 대화를 한 후, 그 결과를 바탕으로 프로필 만들기
+                <div class="class-task-message-box" >
+                <span th:text="*{lecture.assignment}"/>
                   <br><br><br>
                 </div>
-                <div class="task-submit-go"><span><a href="">과제제출</a></span></div>
+                <div class="task-submit-go"><span><a th:href="@{/lecture/assignment}">과제제출</a></span></div>
               </div>
             </div>
+            
+            <div class="col-md-4">
+              <div class="progress-sub-box">
 
+                <div class="progress-box-title">커뮤니티</div>
+                <div>
+                  <div class="status-message-box">
+                    <div><b><span th:text="*{board1.title}"/></b></div>
+                    <div><span th:text="*{board1.content}"/></div>
+                  </div>
+                  <div class="status-message-box">
+                    <div><b><span th:text="*{board2.title}"/></b></div>
+                    <div><span th:text="*{board2.content}"/></div>
+                  </div>
+                  
+                  <div class="status-message-box">
+                    <div><b><span th:text="*{board2.title}"/></b></div>
+                    <div><span th:text="*{board2.content}"/></div>
+                  </div>
+                  <div class="status-go-btn"><span><a th:href="@{/board/list.do}">Go></a></span></div>
+                </div>
+
+              </div>
+            </div>
 
           </div>
           <!-- row -->
@@ -118,6 +123,9 @@
 
 
 <th:block layout:fragment="css">
+<style th:inline="text">
+@keyframes progressbar { 0% { width: 0%; } 100% { width: [[*{member.last_progress * 20}]]%; } }
+</style>
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.css" rel="stylesheet">
   <link th:href="@{css/main.css}" rel="stylesheet">
@@ -129,7 +137,6 @@
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
-
 </body>
 
 </html>

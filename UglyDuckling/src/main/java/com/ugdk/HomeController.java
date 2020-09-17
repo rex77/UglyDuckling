@@ -32,15 +32,13 @@ public class HomeController {
 			result="/home/main";
 			//메인 페이지 띄우기 위한 처리
 			String id = SecurityContextHolder.getContext().getAuthentication().getName();
-			MemberDTO memberInfo = new MemberDTO();
-			System.out.println(memberService.getMemberInfo("s2rlight"));
-			System.out.println(memberInfo);
-			System.out.println(memberInfo.getLast_progress());
+			MemberDTO memberInfo = memberService.getMemberInfo(SecurityContextHolder.getContext().getAuthentication().getName());
 			LectureDTO lectureInfo = lectureService.getLectureInfo(1);
 			List<BoardDTO> boardInfo = boardService.getBoardList(new BoardDTO());
 			model.addAttribute("member",memberInfo);
 			model.addAttribute("lecture",lectureInfo);
-			model.addAttribute("board",boardInfo);
+			model.addAttribute("board1",boardInfo.get(0));
+			model.addAttribute("board2",boardInfo.get(1));
 		}
 		else { //anonymousUser
 			result="redirect:/member/login.do";
