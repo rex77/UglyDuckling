@@ -1,16 +1,23 @@
 package com.ugdk.member.controller;
 
+import java.security.Principal;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import com.ugdk.board.constant.Method;
 import com.ugdk.member.domain.MemberDTO;
 import com.ugdk.member.service.MemberService;
 import com.ugdk.util.UiUtils;
@@ -50,7 +57,7 @@ public class MemberController extends UiUtils {
 	
 	@PostMapping(value="/member/signup.do")
 	public String processSignup(MemberDTO memberDTO) {
-		memberService.joinUser(memberDTO);
+		memberService.joinMember(memberDTO);
 		return "redirect:/member/login.do";
 	}
 	
@@ -61,7 +68,27 @@ public class MemberController extends UiUtils {
 	  }
 	
 	@GetMapping(value="/member/mypage.do")
-	public String showMyPage(Model model) {
-		return "redirect:/member/login.do";
+	public String showMyPage(Principal principal, Model model) {
+		MemberDTO member = memberService.getMemberInfo(principal.getName());
+		model.addAttribute("member",member);
+		return "member/mypage";
+	}
+	
+	@PostMapping(value="/member/mypage.do")
+	public String updateMemberInfo(@ModelAttribute("member") MemberDTO memberDto, @RequestParam("newPassword") String newPassword, Model model) {
+		if(newPassword != "") {
+			String originalPassword = memberService.getMemberInfo(memberDto.getId()).getPassword();
+			String inputPassword = memberDto.getPassword();
+	        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+			if(passwordEncoder.matches(inputPassword, originalPassword)) {
+				memberService.updateMemberWithPassword(memberDto, newPassword);}
+			else {
+				UiUtils util2 = new UiUtils();
+				return util2.showMessageWithRedirect("비밀번호가 틀렸습니다", "/member/mypage.do", Method.GET, null, model);
+			}
+		} else {
+			memberService.updateMember(memberDto);
+		}
+		return "member/mypage";
 	}
 }

@@ -32,8 +32,56 @@
 	
 	<insert id="submitAssignment" parameterType="AssignmentDTO">
 		INSERT INTO as_assignment
-		(title, content, content_id, member_id)
+		(title, content, contentId, memberId)
 		VALUES
 		(#{title},#{content},#{contentId},#{memberId})
 	</insert>
+	
+	<select id="getProgressInfos" parameterType="HashMap" resultType="ProgressDTO">
+		SELECT
+			idx,
+			unitId,
+			contentId,
+			memberId,
+			score,
+			date
+		FROM
+			as_progress
+		WHERE
+			memberId=#{id} 
+			AND unitId=#{unit}
+	</select>
+	
+	<select id="getProgressInfo" parameterType="HashMap" resultType="ProgressDTO">
+		SELECT
+			idx,
+			unitId
+			contentId,
+			memberId,
+			score,
+			date
+		FROM
+			as_progress
+		WHERE
+			unitId=#{unitId}
+			AND contentId=#{contentId}
+			AND memberId=#{memberId}
+	</select>
+	
+	<insert id="insertProgressInfo" parameterType="ProgressDTO">
+		INSERT INTO as_progress
+		(unitId,contentId,memberId,score)
+		VALUES
+		(#{unitId},#{contentId},#{memberId},#{score})
+	</insert>
+	
+	<update id="updateProgressInfo" parameterType="ProgressDTO">
+		UPDATE as_progress
+		SET
+			score=#{score},
+			date=NOW()
+		WHERE
+			idx=#{idx}
+	</update>
+	
 </mapper>

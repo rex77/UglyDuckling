@@ -1,12 +1,13 @@
 package com.ugdk.lecture.mapper;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
 import com.ugdk.lecture.domain.AssignmentDTO;
 import com.ugdk.lecture.domain.LectureDTO;
-import com.ugdk.member.domain.MemberDTO;
+import com.ugdk.lecture.domain.ProgressDTO;
 
 @Mapper
 public interface LectureMapper {
@@ -15,4 +16,12 @@ public interface LectureMapper {
 	public List<LectureDTO> getAllLectureInfos();
 	
 	public boolean submitAssignment(AssignmentDTO assignmentDTO);
+
+	public List<ProgressDTO> getProgressInfos(HashMap<String,Object> param);
+	
+	public ProgressDTO getProgressInfo(HashMap<String, Object> map);
+	
+	public boolean insertProgressInfo(ProgressDTO progressDTO);
+	
+	public boolean updateProgressInfo(ProgressDTO progressDTO);
 }

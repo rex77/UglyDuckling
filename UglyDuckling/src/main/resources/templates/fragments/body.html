@@ -94,14 +94,14 @@
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="Mypage.html" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+        <a class="nav-link collapsed" th:href="|@{/member/mypage.do}|" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
           <i class="fa fa-id-card-o"></i>
           <span>마이페이지</span>
         </a>
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Login Screens:</h6>
-            <a class="collapse-item" href="Edit_Profile.html">회원정보 수정</a>
+            <a class="collapse-item" th:href="|@{/member/mypage.do}|">회원정보 수정</a>
         </div>
       </li>
 

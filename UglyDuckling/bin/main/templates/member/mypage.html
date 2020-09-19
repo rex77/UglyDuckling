@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout/basic">
+<head>
+	<title>Ugly Duckling</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+<link href="fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+
+<script src="https://use.fontawesome.com/82641925aa.js"></script>
+</head>
+<body>
+
+<th:block layout:fragment="content">
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+					<span class="login100-form-logo">
+						<div style="text-align:center;"><href=""><img th:src="@{/img/dck.png}" style="width:80px; " alt=""></a></div>
+					</span>
+
+					<div class="p-5">
+						<div class="text-center">
+							<h1 class="h4 text-green mb-4">회원정보 수정</h1>
+						</div>
+
+
+					<form class="form-horizontal" method="post" th:action="@{/member/mypage.do}">
+							<div class="form-group">
+									<div class="input-group">
+											<div class="input-group-addon align-self-center">아이디</div>
+											<input type="text" name="id" class="form-control form-control-user" th:value="*{member.id}" readonly>
+									</div>
+							</div>
+							<div class="form-group">
+									<div class="input-group">
+											<div class="input-group-addon align-self-center">닉네임</div>
+											<input type="text" name="name" class="form-control form-control-user" th:value="*{member.name}" placeholder="">
+									</div>
+							</div>
+							<div class="form-group">
+									<div class="input-group">
+											<div class="input-group-addon align-self-center">이메일</div>
+											<input type="email" name="email" class="form-control form-control-user" placeholder="" th:value="*{member.email}">
+									</div>
+							</div>
+							<div class="form-group">
+									<div class="input-group">
+											<div class="input-group-addon align-self-center">기존 비밀번호</div>
+											<input type="password" name="password" class="form-control form-control-user" placeholder="">
+									</div>
+							</div>
+							<div class="form-group">
+									<div class="input-group">
+											<div class="input-group-addon align-self-center">새 비밀번호</div>
+											<input type="password" name="newPassword" id="pwd1" class="newPwd form-control form-control-user" placeholder="">
+									</div>
+							</div>
+							<div class="form-group">
+									<div class="input-group">
+											<div class="input-group-addon align-self-center">새 비밀번호 확인</div>
+											<input type="password" id="pwd2"class="newPwd form-control form-control-user" placeholder="">
+									</div>
+							</div>
+							
+								<div class="alert alert-success" id="alert-success">비밀번호가 일치합니다.</div>
+								<div class="alert alert-danger" id="alert-danger">비밀번호가 일치하지 않습니다.</div>
+							<div class="text-center">
+								<input id="submit" type="submit" value="확인" class="btn btn-primary btn-user">
+							</div>
+					</form>
+
+</div>
+
+
+			</div>
+		</div>
+	</div>
+
+
+	<div id="dropDownSelect1"></div>
+
+
+
+</th:block>
+
+</body>
+<th:block layout:fragment="css">
+	<link th:href="@{/css/Login.css}" rel="stylesheet">
+	<link th:href="@{/css/service-center.css}" rel="stylesheet">
+</th:block>
+<th:block layout:fragment="script">
+
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	<script src="js/main.js"></script>
+	<script type="text/javascript">
+    $(function(){
+        $("#alert-success").hide();
+        $("#alert-danger").hide();
+        $(".newPwd").keyup(function(){
+            var pwd1=$("#pwd1").val();
+            var pwd2=$("#pwd2").val();
+            if(pwd1 != "" || pwd2 != ""){
+                if(pwd1 == pwd2){
+                    $("#alert-success").show();
+                    $("#alert-danger").hide();
+                    $("#submit").removeAttr("disabled");
+                }else{
+                    $("#alert-success").hide();
+                    $("#alert-danger").show();
+                    $("#submit").attr("disabled", "disabled");
+                }    
+            }
+            else if(pwd1 == "" && pwd2 == "") {
+                $("#alert-success").hide();
+                $("#alert-danger").hide();
+                $("#submit").attr("disabled", "disabled");
+            }
+        });
+    });
+</script>
+	</th:block>
+</html>

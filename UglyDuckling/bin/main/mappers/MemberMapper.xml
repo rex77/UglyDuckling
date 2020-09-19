@@ -31,4 +31,20 @@
 			  , 1
 		)
 	</insert>
+	
+	<update id="updateMember" parameterType="MemberDTO">
+		UPDATE as_member
+		SET
+		name=#{name}
+		, email=#{email}
+	</update>
+	
+	
+	<update id="updateMemberWithPassword" parameterType="MemberDTO">
+		UPDATE as_member
+		SET
+		password=#{password}
+		, name=#{name}
+		, email=#{email}
+	</update>
 </mapper>

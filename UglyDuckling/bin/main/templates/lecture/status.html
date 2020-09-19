@@ -21,7 +21,6 @@
 		</div>
 
 
-
 		<div class="text-center">
 			<div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
 
@@ -45,21 +44,21 @@
 		<table>
 			<tr class="line">
 				<td><a href="#"
-					th:attr="onclick=|openPage('${lec.lecture}')|" >학습하기</a>
+					th:attr="onclick=|openPage('${lec.lecture}',1)|" >학습하기</a>
 				</td>
-				<td><i class="fa fa-check"></i></td>
+				<td > <i class="fa fa-check" th:each="record:${progress}" th:if="${record.contentId} == '1'"></i></td>
 			</tr>
 			<tr class="line">
 				<td><a href="#"
-					th:attr="onclick=|openPage('${lec.quiz}')|">기본문제</a>
+					th:attr="onclick=|openPage('${lec.quiz}',2)|">기본문제</a>
 				</td>
-				<td><i class="fa fa-check"></i></td>
+				<td><i class="fa fa-check" th:each="record:${progress}" th:if="${record.contentId} == '2'"></i></td>
 			</tr> 
 			<tr class="line">
 				<td><a href="#"
-					th:attr="onclick=|openPage('${lec.quiz2}')|">심화문제</a>
+					th:attr="onclick=|openPage('${lec.quiz2}',3)|">심화문제</a>
 				</td>
-				<td><i class="fa fa-check"></i></td>
+				<td><i class="fa fa-check" th:each="record:${progress}" th:if="${record.contentId} == '3'"></i></td>
 			</tr>
 			<tr class="line">
 				<td><a href="Learning_Contents.html"></a></td>
@@ -86,7 +85,17 @@
 	<script th:inline="javascript">
 		/*<![CDATA[*/
 
-		function openPage(uri) {
+		function openPage(uri, content_id) {
+			$.ajax({
+				  method: "GET",
+				  url: "/lecture/progress.do",
+				  dataType: "text",
+				  data: {
+					  unitId:/*[[ ${lec.idx} ]]*/,
+					  contentId: content_id,
+					  score: 100
+				  }
+				})
 			window.open(uri,'name','resizable=no width=960 height=480 location=no, directories=no, status=no, toolbar=no min-width:300 min-height:300');
 		}
 		/*[- end of function -]*/

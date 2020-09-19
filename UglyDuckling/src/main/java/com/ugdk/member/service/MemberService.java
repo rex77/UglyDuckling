@@ -4,5 +4,7 @@ import com.ugdk.member.domain.MemberDTO;
 
 public interface MemberService {
 	MemberDTO getMemberInfo(String id);
-	void joinUser(MemberDTO memberDto);
+	void joinMember(MemberDTO memberDto);
+	public void updateMember (MemberDTO memberDto);
+	public void updateMemberWithPassword (MemberDTO memberDto, String password);
 }

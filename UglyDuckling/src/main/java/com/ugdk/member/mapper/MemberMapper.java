@@ -10,4 +10,6 @@ import com.ugdk.member.domain.MemberDTO;
 public interface MemberMapper {
 	public MemberDTO getMemberInfo(String id);
 	public void saveMember(MemberDTO memberDto);
+	public void updateMember(MemberDTO memberDto);
+	public void updateMemberWithPassword(MemberDTO memberDto);
 }
