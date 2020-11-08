@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Logout</title>
+<style>
+body {background-color: black; width:100%; height: 100%; margin: 0;}
+#wrapper {text-align: center;}
+#wrapper img {width: 90%; vertical-align: center;}
+</style>
+<script>
+
+setTimeout(function() {
+	  location.href = "/";
+	}, 2000);
+	
+</script>
+</head>
+<body>
+<div id="wrapper">
+<img th:src="@{/img/logout.gif}"/>
+</div>
+</body>
+</html>

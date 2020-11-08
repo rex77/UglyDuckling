@@ -5,9 +5,11 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import com.ugdk.board.constant.Method;
 import com.ugdk.member.domain.MemberDTO;
 import com.ugdk.member.mapper.MemberMapper;
 import com.ugdk.util.CommonUtils;
+import com.ugdk.util.UiUtils;
 
 @Service
 public class MemberServiceImpl implements MemberService, UserDetailsService {
@@ -49,7 +51,4 @@ public class MemberServiceImpl implements MemberService, UserDetailsService {
 		memberDto.setPassword(newPassword);
 		memberMapper.updateMemberWithPassword(memberDto);
 	}
-
-	
-
 }

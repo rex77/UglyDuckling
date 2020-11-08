@@ -51,8 +51,13 @@ tr{
 
 td{
   min-width:60px;
+  text-align:center;
+  font-size:16px;
 }
 
+td:nth-child(2) {
+    text-align: left !important;
+}
 
 
 

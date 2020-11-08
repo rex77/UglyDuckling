@@ -13,9 +13,9 @@
   border-radius: 10px;
 }
 
-.preview-text{
-  text-align:center;
-
+.preview-text h6{
+  text-align:center !important;
+  
   color:black;
 }
 
@@ -24,7 +24,7 @@ h6{
 }
 
 
-.unit-title{
+.unit-title a{
 font-size:35px;
 font-weight: bold;
 }

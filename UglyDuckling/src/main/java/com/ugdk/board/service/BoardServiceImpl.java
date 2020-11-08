@@ -20,6 +20,7 @@ public class BoardServiceImpl implements BoardService {
 	public boolean registerBoard(BoardDTO params) {
 		int queryResult = 0;
 
+		System.out.println("params.getIdx(): "+params.getIdx());
 		if (params.getIdx() == null) {
 			queryResult = boardMapper.insertBoard(params);
 		} else {

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout/basic">
+<meta charset="utf-8">
+
+<th:block layout:fragment="title">
+	<title>this is progress page</title>
+
+</th:block>
+
+
+<th:block layout:fragment="content">
+	<div class="container">
+		<div class="col-3">
+
+			<div class="row u-title ">
+				<div class="unit-title">
+					<a href="#">Unit<span th:text="${lec.idx}"></span></a>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="text-center">
+			<div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+
+				<div class="preview-box bg-white">
+					<div class="d-block d-md-flex">
+						<div class="preview-img">
+							<img th:src="@{${'/img/preview'+lec.idx+'.png'}}" style="max-width: 300px" alt="">
+						</div>
+						<div class="preview-text align-self-center">
+
+							<h6 th:text="${lec.goal}"></h6>
+
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+
+		<table>
+			<tr class="line">
+				<td><a href="#"
+					th:attr="onclick=|openPage('${lec.lecture}',1)|" >학습하기</a>
+				</td>
+				<td > <i class="fa fa-check" th:each="record:${progress}" th:if="${record.contentId} == '1'"></i></td>
+			</tr>
+			<tr class="line">
+				<td><a href="#"
+					th:attr="onclick=|openPage('${lec.quiz}',2)|">기본문제</a>
+				</td>
+				<td><i class="fa fa-check" th:each="record:${progress}" th:if="${record.contentId} == '2'"></i></td>
+			</tr> 
+			<tr class="line">
+				<td><a href="#"
+					th:attr="onclick=|openPage('${lec.quiz2}',3)|">심화문제</a>
+				</td>
+				<td><i class="fa fa-check" th:each="record:${progress}" th:if="${record.contentId} == '3'"></i></td>
+			</tr>
+			<tr class="line">
+				<td><a href="Learning_Contents.html"></a></td>
+				<td><i class="fa fa-check"></i></td>
+			</tr>
+			<tr class="line">
+				<td></td>
+				<td><i class=""></i></td>
+			</tr>
+		</table>
+
+	</div>
+
+
+
+</th:block>
+
+
+</th:block>
+<th:block layout:fragment="css">
+	<link th:href="@{/css/Learning_Contents.css}" rel="stylesheet">
+</th:block>
+<th:block layout:fragment="script">
+	<script th:inline="javascript">
+		/*<![CDATA[*/
+
+		function openPage(uri, content_id) {
+			$.ajax({
+				  method: "GET",
+				  url: "/lecture/progress.do",
+				  dataType: "text",
+				  data: {
+					  unitId:/*[[ ${lec.idx} ]]*/,
+					  contentId: content_id,
+					  score: 100
+				  }
+				})
+			window.open(uri,'name','resizable=no width=960 height=480 location=no, directories=no, status=no, toolbar=no min-width:300 min-height:300');
+		}
+		/*[- end of function -]*/
+
+		/*]]>*/
+	</script>
+
+</th:block>
+</html>

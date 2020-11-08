@@ -8,12 +8,11 @@
 .wrap-login100{
   box-shadow : 5px 5px 30px 5px rgba(0,0,0,.125);
   border-radius:10px;
-
 }
 
 .container-login100 {
   width: 100%;
-  min-height: 100vh;
+  min-height: 70vh;
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -40,7 +39,7 @@
   height: 100%;
   top: 0;
   left: 0;
-  background-color: rgba(255,255,255,0.9);
+
 }
 
 .container-login100-form-btn {
@@ -162,7 +161,7 @@
   width: 500px;
   border-radius: 10px;
   overflow: hidden;
-  padding: 55px 55px 37px 55px;
+  padding:35px 35px 10px 35px;
 
   background: #9152f8;
   background: -webkit-linear-gradient(top, rgb(255, 255, 255),rgb(255, 255, 255));
@@ -182,7 +181,9 @@
 
 
 @media (max-width: 576px) {
+	body*{
+	font-size:15px;}
   .wrap-login100 {
-    padding: 55px 15px 37px 15px;
+    padding: 10px;
   }
 }

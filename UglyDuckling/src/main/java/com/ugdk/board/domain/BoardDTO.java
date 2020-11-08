@@ -1,5 +1,8 @@
 package com.ugdk.board.domain;
 
+import org.apache.ibatis.type.Alias;
+
+@Alias("BoardDTO")
 public class BoardDTO extends CommonDTO {
 
 	

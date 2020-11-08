@@ -58,7 +58,7 @@
                         </div>    
                       </div>
                     </div>
-                      <div class="progress-text text-center">총 5단원 중 <span th:text="*{member.last_progress}" />단원 학습 완료</div>
+                      <div class="progress-text text-center">총 5단원 중 <span th:text="*{member.last_progress}" />단원 학습 중</div>
 
 
                 <div class="week-goal">
@@ -86,7 +86,7 @@
                 <span th:text="*{lecture.assignment}"/>
                   <br><br><br>
                 </div>
-                <div class="task-submit-go"><span><a th:href="@{/lecture/assignment}">과제제출</a></span></div>
+                <div class="task-submit-go"><span><a th:href="@{/lecture/assignment.do}">과제제출</a></span></div>
               </div>
             </div>
             
@@ -97,16 +97,15 @@
                 <div>
                   <div class="status-message-box">
                     <div><b><span th:text="*{board1.title}"/></b></div>
-                    <div><span th:text="*{board1.content}"/></div>
+                    <div class="content-box"><span th:text="*{board1.content}"/></div>
                   </div>
                   <div class="status-message-box">
                     <div><b><span th:text="*{board2.title}"/></b></div>
-                    <div><span th:text="*{board2.content}"/></div>
+                    <div class="content-box"><span th:text="*{board2.content}"/></div>
                   </div>
-                  
                   <div class="status-message-box">
-                    <div><b><span th:text="*{board2.title}"/></b></div>
-                    <div><span th:text="*{board2.content}"/></div>
+                    <div><b><span th:text="*{board3.title}"/></b></div>
+                    <div class="content-box" th:text="*{board3.content}"></div>
                   </div>
                   <div class="status-go-btn"><span><a th:href="@{/board/list.do}">Go></a></span></div>
                 </div>
@@ -127,7 +126,7 @@
 @keyframes progressbar { 0% { width: 0%; } 100% { width: [[*{member.last_progress * 20}]]%; } }
 </style>
   <!-- Custom styles for this template-->
-  <link href="css/sb-admin-2.css" rel="stylesheet">
+  <link th:href="@{css/sb-admin-2.css}" rel="stylesheet">
   <link th:href="@{css/main.css}" rel="stylesheet">
 </th:block>
 

@@ -1,14 +1,31 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorator="layout/basic">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <meta charset="utf-8">
-<th:block layout:fragment="title">
+<head>
 	<title>Login</title>
-</th:block>
-
-
-<th:block layout:fragment="content">
+	
+	
+	
+	<script>
+		function check_login(){
+			if(document.login_form.username.value == ""){
+				alert("아이디를 입력해주세요");
+				document.login_form.username.focus();
+				exit();
+			}
+			
+			if(document.login_form.password.value == ""){
+				alert("비밀번호를 입력해주세요");
+				document.login_form.password.focus();
+				exit();
+			}
+			document.login_form.submit();
+		}
+	
+	
+	</script>
+</head>
+<body>
 	<div class="container">
 
 		<!-- Outer Row -->
@@ -39,7 +56,7 @@
 							<div class="text-center">
 								<h1 class="h4 text-green mb-4">LOGIN</h1>
 							</div>
-							<form class="user" th:action="@{/member/login.do}" method="post">
+							<form class="user" name="login_form" th:action="@{/member/login.do}" method="post">
 
 								<div class="form-group">
 									<input type="text" class="form-control form-control-user"
@@ -57,8 +74,8 @@
 											for="customCheck">기억하기</label>
 									</div>
 								</div>
-								<input type="submit"
-									class="btn btn-primary btn-user btn-block" />
+								<input type="button"
+									class="btn btn-primary btn-user btn-block" value="확인" onClick="check_login()"/>
 							</form>
 							<hr>
 							<div th:if="${session['SPRING_SECURITY_LAST_EXCEPTION']} != null">
@@ -69,7 +86,7 @@
 								<a class="" href="/member/signup.do">아직 회원이 아니신가요?</a>
 							</div>
 							<div class="service-center-btn text-center">
-								<a class="" href="service-center.html">고객센터 문의하기</a>
+								<a class="" href="/service.do">고객센터 문의하기</a>
 							</div>
 
 						</div>
@@ -83,12 +100,11 @@
     </div> -->
 
 	</div>
-</th:block>
-
+	</body>
 <th:block layout:fragment="css">
 	<link th:href="@{/css/Login.css}" rel="stylesheet">
+	<link th:href="@{/css/sb-admin-2.css}" rel="stylesheet">
 </th:block>
 
-<th:block layout:fragment="script">
-</th:block>
+
 </html>

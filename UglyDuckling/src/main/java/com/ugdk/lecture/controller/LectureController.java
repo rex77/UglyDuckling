@@ -29,7 +29,7 @@ public class LectureController extends UiUtils  {
 	@Autowired
 	MemberService memberService;
 
-	// 강의 뷰(실제)
+	// 강의 뷰
 	@GetMapping(value = "/lecture/view.do")
 	public String openLectureDetail(@RequestParam(value = "idx", required = false, defaultValue = "1") int idx,
 			Model model) {
@@ -40,7 +40,7 @@ public class LectureController extends UiUtils  {
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		MemberDTO member = (MemberDTO) principal;
 		List<ProgressDTO> progress = lectureService.getProgressInfos(member.getId(), lecture.getIdx());
-		System.out.println(progress);
+		System.out.println("progress : " + progress);
 		model.addAttribute("progress",progress);
 		return "lecture/status";
 
@@ -86,6 +86,5 @@ public class LectureController extends UiUtils  {
 		progress.setScore(score);
 		return lectureService.updateProgressInfo(progress);
 	}
-
 
 }

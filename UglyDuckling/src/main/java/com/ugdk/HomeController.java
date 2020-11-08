@@ -33,12 +33,13 @@ public class HomeController {
 			//메인 페이지 띄우기 위한 처리
 			String id = SecurityContextHolder.getContext().getAuthentication().getName();
 			MemberDTO memberInfo = memberService.getMemberInfo(SecurityContextHolder.getContext().getAuthentication().getName());
-			LectureDTO lectureInfo = lectureService.getLectureInfo(1);
+			LectureDTO lectureInfo = lectureService.getLectureInfo(memberInfo.getLast_progress());
 			List<BoardDTO> boardInfo = boardService.getBoardList(new BoardDTO());
 			model.addAttribute("member",memberInfo);
 			model.addAttribute("lecture",lectureInfo);
 			model.addAttribute("board1",boardInfo.get(0));
 			model.addAttribute("board2",boardInfo.get(1));
+			model.addAttribute("board3",boardInfo.get(2));
 		}
 		else { //anonymousUser
 			result="redirect:/member/login.do";

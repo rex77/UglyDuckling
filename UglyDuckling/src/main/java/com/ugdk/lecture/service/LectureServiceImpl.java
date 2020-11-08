@@ -40,6 +40,7 @@ public class LectureServiceImpl implements LectureService {
 	@Override
 	public boolean updateProgressInfo(ProgressDTO progressDTO) {
 		//이미 해당 컨텐츠에 대해 올라간 값이 있는 지 찾기 위해 검색
+		boolean result = false;
 		HashMap<String, Object> param = new HashMap<String, Object>();
 		param.put("unitId", progressDTO.getUnitId());
 		param.put("contentId", progressDTO.getContentId());
@@ -48,13 +49,35 @@ public class LectureServiceImpl implements LectureService {
 		//만약 검색 결과가 없으면
 		if(originalRecord == null) {
 			//insert
-			return lectureMapper.insertProgressInfo(progressDTO);
+			result = lectureMapper.insertProgressInfo(progressDTO);
+			
+			//last_progress 업데이트
+			HashMap<String, Object> param2 = new HashMap<String, Object>();
+			param2.put("id", progressDTO.getMemberId());
+			param2.put("unit", progressDTO.getUnitId());
+			int count = lectureMapper.getProgressInfos(param2).size();
+			
+			if(count == 3) {
+				HashMap<String, Object> param3 = new HashMap<String, Object>();
+				
+				param3.put("memberId", progressDTO.getMemberId());
+				int nextUnit = progressDTO.getUnitId() + 1;
+				
+				if (nextUnit > 5)
+					nextUnit = 5;
+				else
+					nextUnit = progressDTO.getUnitId()+1;
+				param3.put("unitId", nextUnit);
+				System.out.println("unitId: " + param3.get("unitId"));
+				lectureMapper.updateLastProgress(param3);
+			}
 		} else {
 			//update
 			originalRecord.setScore(progressDTO.getScore());
-			return lectureMapper.updateProgressInfo(originalRecord);
+			result = lectureMapper.updateProgressInfo(originalRecord);
 		}
 		
+		return result;
 	}
 
 	@Override
@@ -66,5 +89,15 @@ public class LectureServiceImpl implements LectureService {
 		param.put("memberId", memberId);
 		
 		return lectureMapper.getProgressInfo(param);
+	}
+
+	@Override
+	public boolean updateLastProgress(String id, int nextUnit) {
+		// TODO Auto-generated method stub
+		HashMap<String, Object> param = new HashMap<String,Object>();
+		param.put("id",id);
+		param.put("nextUnit", nextUnit);
+		
+		return lectureMapper.updateLastProgress(param);
 	}
 }

@@ -2,7 +2,7 @@
 <html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="board/layout/basic">
 <meta charset="utf-8">
 	<th:block layout:fragment="title">
-		<title>thiThe page is a write page</title>
+		<title>The page is a write page</title>
 	</th:block>
 
 	<th:block layout:fragment="content">
@@ -60,7 +60,6 @@
 			/*<![CDATA[*/
 
 			function registerBoard(form) {
-
 	form.noticeYn.value = form.noticeYn.checked == false ? 'N' : 'Y';
 	form.secretYn.value = form.secretYn.checked == false ? 'N' : 'Y';
 

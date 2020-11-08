@@ -24,4 +24,6 @@ public interface LectureMapper {
 	public boolean insertProgressInfo(ProgressDTO progressDTO);
 	
 	public boolean updateProgressInfo(ProgressDTO progressDTO);
+	
+	public boolean updateLastProgress(HashMap<String, Object> param);
 }

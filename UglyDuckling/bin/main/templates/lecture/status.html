@@ -1,106 +1,151 @@
+
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorator="layout/basic">
+
+<head>
+
 <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
 
-<th:block layout:fragment="title">
-	<title>this is progress page</title>
-</th:block>
+<title>Ugly Duckling</title>
 
+<!-- Custom fonts for this template-->
+<link href="fontawesome-free/css/all.min.css" rel="stylesheet"
+	type="text/css">
+<link
+	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+	rel="stylesheet">
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
+
+<script src="https://use.fontawesome.com/82641925aa.js"></script>
+
+<!-- Custom styles for this template-->
+
+</head>
 
 <th:block layout:fragment="content">
-	<div class="container">
-		<div class="col-3">
-
-			<div class="row u-title ">
-				<div class="unit-title">
-					<a href="#">Unit<span th:text="${lec.idx}"></span></a>
+	<body id="page-top">
+		<div class="container">
+			<div class="my-progress">
+				<div class="my-main-progress">
+					<span class="my-main-progress-title"> 내 과정 </span>
+				</div>
+				<div class="my-sub-progress">
+					<span class="my-sub-progress-title"> peers 청소년 사회기술훈련 <b>Unit<span
+							th:text="${lec.idx}" /></b>
+					</span>
 				</div>
 			</div>
-		</div>
 
+			<div class="progress-box row">
 
-		<div class="text-center">
-			<div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+				<div class="col-md-4">
+					<div class="progress-sub-box">
 
-				<div class="preview-box bg-white">
-					<div class="d-block d-md-flex">
-						<div class="preview-img">
-							<img th:src="@{${'/img/preview'+lec.idx+'.png'}}" style="max-width: 300px" alt="">
+						<div class="lecture-svg">
+							<img th:src="@{/img/desk.png}" alt="">
 						</div>
-						<div class="preview-text align-self-center">
+						<div class="lecture-text text-center">학습하기</div>
+						<div class="task-submit-go">
+							<span><a href=""
+								th:attr="onclick=|openPage('${lec.lecture}',1)|">Go</a></span>
+						</div>
 
-							<h6 th:text="${lec.goal}"></h6>
+					</div>
+				</div>
 
+				<div class="col-md-4">
+					<div class="progress-sub-box">
+
+						<div class="lecture-svg">
+							<img th:src="@{/img/test.png}" alt="">
+						</div>
+						<div class="lecture-text text-center">기본문제</div>
+						<div class="task-submit-go">
+							<span><a href=""
+								th:attr="onclick=|openPage('${lec.quiz}',2)|">Go</a></span>
+						</div>
+
+					</div>
+				</div>
+
+
+				<div class="col-md-4">
+					<div class="progress-sub-box"
+						style="background-color: white; border: 3px solid rgb(235, 235, 235);">
+
+						<div class="lecture-svg">
+							<img th:src="@{/img/quiz (2).png}" alt="">
+						</div>
+						<div class="lecture-text text-center">심화문제</div>
+						<div class="task-submit-go">
+							<span><a href=""
+								th:attr="onclick=|openPage('${lec.quiz2}',3)|">Go</a></span>
 						</div>
 					</div>
 				</div>
 
 			</div>
+			<!-- row -->
 		</div>
+		<!-- 컨테이너 -->
 
+		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+			integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+			crossorigin="anonymous"></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+			integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+			crossorigin="anonymous"></script>
+		<script
+			src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+			integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+			crossorigin="anonymous"></script>
 
-		<table>
-			<tr class="line">
-				<td><a href="#"
-					th:attr="onclick=|openPage('${lec.lecture}',1)|" >학습하기</a>
-				</td>
-				<td > <i class="fa fa-check" th:each="record:${progress}" th:if="${record.contentId} == '1'"></i></td>
-			</tr>
-			<tr class="line">
-				<td><a href="#"
-					th:attr="onclick=|openPage('${lec.quiz}',2)|">기본문제</a>
-				</td>
-				<td><i class="fa fa-check" th:each="record:${progress}" th:if="${record.contentId} == '2'"></i></td>
-			</tr> 
-			<tr class="line">
-				<td><a href="#"
-					th:attr="onclick=|openPage('${lec.quiz2}',3)|">심화문제</a>
-				</td>
-				<td><i class="fa fa-check" th:each="record:${progress}" th:if="${record.contentId} == '3'"></i></td>
-			</tr>
-			<tr class="line">
-				<td><a href="Learning_Contents.html"></a></td>
-				<td><i class="fa fa-check"></i></td>
-			</tr>
-			<tr class="line">
-				<td></td>
-				<td><i class=""></i></td>
-			</tr>
-		</table>
+		<!-- Custom scripts for all pages-->
+		<script src="js/sb-admin-2.min.js"></script>
 
-	</div>
-
-
-
+	</body>
 </th:block>
 
-
-</th:block>
 <th:block layout:fragment="css">
-	<link th:href="@{/css/Learning_Contents.css}" rel="stylesheet">
+	<link th:href="@{/css/sb-admin-2.css}" rel="stylesheet">
+	<link th:href="@{/css/Learning_Status2.css}" rel="stylesheet">
 </th:block>
 <th:block layout:fragment="script">
 	<script th:inline="javascript">
-		/*<![CDATA[*/
-
 		function openPage(uri, content_id) {
-			$.ajax({
-				  method: "GET",
-				  url: "/lecture/progress.do",
-				  dataType: "text",
-				  data: {
-					  unitId:/*[[ ${lec.idx} ]]*/,
-					  contentId: content_id,
-					  score: 100
-				  }
-				})
-			window.open(uri,'name','resizable=no width=960 height=480 location=no, directories=no, status=no, toolbar=no min-width:300 min-height:300');
+		 var xmlDoc = new XMLHttpRequest();
+			var url = "/lecture/progress.do?unitId=";
+			/*<![CDATA[*/ url += /*[[${lec.idx}]]*/; /*]]>*/
+			url += "&contentId="
+			url += content_id
+			url += "&score=100";
+		 xmlDoc.open('GET', url, true);
+		  xmlDoc.onreadystatechange = function() {
+		    if (xmlDoc.readyState === 4 && xmlDoc.status === 200) {
+		      callback(xmlDoc);
+			   }
+			 }
+		  xmlDoc.send();
+		
+		  window.open(uri,'name','resizable=no width=960 height=650 location=no, directories=no, status=no, toolbar=no min-width:300 min-height:300');
+				
 		}
 		/*[- end of function -]*/
 
-		/*]]>*/
 	</script>
 
 </th:block>

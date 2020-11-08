@@ -37,6 +37,14 @@
 		(#{title},#{content},#{contentId},#{memberId})
 	</insert>
 	
+	<update id="updateLastProgress" parameterType="HashMap">
+		UPDATE as_member
+		SET
+			last_progress=#{unitId}
+		WHERE
+			id=#{memberId}
+	</update>
+	
 	<select id="getProgressInfos" parameterType="HashMap" resultType="ProgressDTO">
 		SELECT
 			idx,
@@ -51,6 +59,7 @@
 			memberId=#{id} 
 			AND unitId=#{unit}
 	</select>
+	
 	
 	<select id="getProgressInfo" parameterType="HashMap" resultType="ProgressDTO">
 		SELECT

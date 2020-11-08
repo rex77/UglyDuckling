@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,60 +28,74 @@ import lombok.RequiredArgsConstructor;
 public class MemberController extends UiUtils {
 	@Autowired
 	MemberService memberService;
-	
-	@GetMapping(value="/member/login.do")
+
+	@GetMapping(value = "/member/login.do")
 	public String showLoginPage(Model model) {
-		return "member/login" ;
+		return "member/login";
 	}
-	
-	@PostMapping(value="/member/login.do")
+
+	@PostMapping(value = "/member/login.do")
 	public String processLogin(Model model) {
-		return "member/login" ;
+		return "member/login";
 	}
-	
-	@GetMapping(value="/member/success.do")
+
+	@GetMapping(value = "/member/success.do")
 	public String showLoginSuccessPage(Model model) {
-		return "member/success" ;
+		return "member/success";
 	}
-	
-	@GetMapping(value="/member/denied.do")
+
+	@GetMapping(value = "/member/denied.do")
 	public String showLoginDeniedPage(Model model) {
-		return "member/denied" ;
+		return "member/denied";
 	}
-	
-	@GetMapping(value="/member/signup.do")
+
+	@GetMapping(value = "/member/signup.do")
 	public String showSignupPage(Model model) {
 		return "member/signup";
 	}
-	
-	@PostMapping(value="/member/signup.do")
+
+	@PostMapping(value = "/member/signup.do")
 	public String processSignup(MemberDTO memberDTO) {
 		memberService.joinMember(memberDTO);
 		return "redirect:/member/login.do";
 	}
-	
-	@GetMapping(value="/member/logout.do")
-	public String logoutPage(HttpServletRequest request, HttpServletResponse response) {
-	    new SecurityContextLogoutHandler().logout(request, response, SecurityContextHolder.getContext().getAuthentication());
-	    return "redirect:/";
-	  }
-	
-	@GetMapping(value="/member/mypage.do")
-	public String showMyPage(Principal principal, Model model) {
-		MemberDTO member = memberService.getMemberInfo(principal.getName());
-		model.addAttribute("member",member);
-		return "member/mypage";
+
+	@GetMapping(value = "/member/logout.do")
+	public String logout(@RequestParam(value = "type", defaultValue = "normal") String type, HttpServletRequest request,
+			HttpServletResponse response, Model model) {
+
+		UiUtils util = new UiUtils();
+		if (type.equals("normal")) {
+			new SecurityContextLogoutHandler().logout(request, response,
+					SecurityContextHolder.getContext().getAuthentication());
+		} else if (type.equals("sessionDestroyed")) {
+			
+		} 
+		else {
+		}
+		
+		return "member/logout";
+
 	}
 	
-	@PostMapping(value="/member/mypage.do")
-	public String updateMemberInfo(@ModelAttribute("member") MemberDTO memberDto, @RequestParam("newPassword") String newPassword, Model model) {
-		if(newPassword != "") {
+
+	@GetMapping(value = "/member/mypage.do")
+	public String showMyPage(Principal principal, Model model) {
+		MemberDTO member = memberService.getMemberInfo(principal.getName());
+		model.addAttribute("member", member);
+		return "member/mypage";
+	}
+
+	@PostMapping(value = "/member/mypage.do")
+	public String updateMemberInfo(@ModelAttribute("member") MemberDTO memberDto,
+			@RequestParam("newPassword") String newPassword, Model model) {
+		if (newPassword != "") {
 			String originalPassword = memberService.getMemberInfo(memberDto.getId()).getPassword();
 			String inputPassword = memberDto.getPassword();
-	        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-			if(passwordEncoder.matches(inputPassword, originalPassword)) {
-				memberService.updateMemberWithPassword(memberDto, newPassword);}
-			else {
+			BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+			if (passwordEncoder.matches(inputPassword, originalPassword)) {
+				memberService.updateMemberWithPassword(memberDto, newPassword);
+			} else {
 				UiUtils util2 = new UiUtils();
 				return util2.showMessageWithRedirect("비밀번호가 틀렸습니다", "/member/mypage.do", Method.GET, null, model);
 			}
@@ -90,5 +103,11 @@ public class MemberController extends UiUtils {
 			memberService.updateMember(memberDto);
 		}
 		return "member/mypage";
+	}
+
+	@GetMapping(value = "/member/autologout.do")
+	public String autoLogout(Model model) {
+		UiUtils util = new UiUtils();
+		return util.showMessageWithRedirect("로그인 만료 시간이 되어 로그아웃 되었습니다.", "/", Method.GET, null, model);
 	}
 }

@@ -1,4 +1,4 @@
-package com.ugdk.member.error;
+package com.ugdk.member.handler;
 
 import java.io.IOException;
 

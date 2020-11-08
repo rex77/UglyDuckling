@@ -9,11 +9,12 @@ import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.config.web.servlet.session.SessionConcurrencyDsl;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 
-import com.ugdk.member.error.CustomAuthenticationFailureHandler;
+import com.ugdk.member.handler.CustomAuthenticationFailureHandler;
+import com.ugdk.member.handler.CustomLoginSuccessHandler;
 import com.ugdk.member.service.MemberServiceImpl;
 
 import lombok.AllArgsConstructor;
@@ -41,30 +42,25 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.and()
 		.formLogin()
 			.loginPage("/member/login.do")
-			.defaultSuccessUrl("/")
-			.failureHandler(failureHandler())
+			.successHandler(new CustomLoginSuccessHandler())
+			.failureHandler(new CustomAuthenticationFailureHandler())
 			.usernameParameter("username")
 			.passwordParameter("password")
 			.permitAll()
 		.and()
 			.logout()
-			.logoutSuccessUrl("/")
-			.invalidateHttpSession(true)
+			.invalidateHttpSession(false)
+			.logoutSuccessUrl("/member/logout.do?type=normal")
+			.permitAll()
 		.and()
-			.exceptionHandling().accessDeniedPage("/member/denied.do");
-		http.sessionManagement()
-        .sessionCreationPolicy(SessionCreationPolicy.ALWAYS);
-		
+			.sessionManagement()
+			.sessionCreationPolicy(SessionCreationPolicy.ALWAYS)
+			.invalidSessionUrl("/member/logout.do?type=sessionDestroyed");
 	}
 	
 	@Override
 	public void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(memberServiceImpl).passwordEncoder(passwordEncoder());
-	}
-	
-	@Bean
-	public AuthenticationFailureHandler failureHandler() {
-		return new CustomAuthenticationFailureHandler();
 	}
 	
 }

@@ -24,13 +24,6 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
 
 <script src="https://use.fontawesome.com/82641925aa.js"></script>
-<!--===============================================================================================-->
-<th:block layout:fragment="css">
-	<link rel="stylesheet" type="text/css"
-		th:href="@{/css/service-center.css}">
-	<link rel="stylesheet" type="text/css" th:href="@{/css/Login.css}">
-</th:block>
-<!--===============================================================================================-->
 </head>
 <body>
 	<th:block layout:fragment="content">
@@ -38,38 +31,30 @@
 			<div class="container-login100">
 				<div class="wrap-login100">
 					<form id="myForm" class="login100-form validate-form">
-
-						<span class="login100-form-logo">
-							<div style="text-align: center;">
-								<a href="service-center.html"><img src="img/dck.png"
-									style="width: 80px;" alt=""></a>
-							</div>
-						</span>
-
-
 						<div class="p-5">
-							<div class="text-center">
-								<h1 class="h4 text-green mb-4">Service Center</h1>
+							<div class="text-center"
+								style="margin-top: -30px; margin-bottom: 30px;">
+								<h1 class="h4 text-green mb-4">고객 센터</h1>
 							</div>
-								<div class="form-group">
-									<input type="text" class="form-control form-control-user"
-										id="user_name" name="user_name" placeholder="이름">
-								</div>
-								<div class="form-group">
-									<input type="email" class="form-control form-control-user"
-										id="user_email" name="user_email" placeholder="이메일">
-								</div>
-								<div class="form-group">
-									<textarea rows="5" name="message" id="message"
-										placeholder="문의사항" class="form-control form-control-user"
-										style="resize: none; padding: 1rem 1rem;"></textarea>
-								</div>
-								<input type="submit" class="btn btn-primary btn-user btn-block"
-									onclick="javascript:sendmail()" />
-							</form>
-						</div>
+							<div class="form-group">
+								<input type="text" class="form-control form-control-user"
+									id="user_name" name="user_name" placeholder="이름">
+							</div>
+							<div class="form-group">
+								<input type="email" class="form-control form-control-user"
+									id="user_email" name="user_email" placeholder="이메일">
+							</div>
+							<div class="form-group">
+								<textarea rows="5" name="message" id="message"
+									placeholder="문의사항" class="form-control form-control-user"
+									style="resize: none; padding: 1rem 1rem;"></textarea>
+							</div>
+							<input type="submit" class="btn btn-primary btn-user btn-block"
+								onclick="javascript:sendmail()" />
+					</form>
 				</div>
 			</div>
+		</div>
 		</div>
 
 
@@ -120,7 +105,16 @@
 		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
 		crossorigin="anonymous"></script>
 
-	<script th:src="@{/scripts/main.js}"></script>
+	<th:block layout:fragment="css">
+		<link rel="stylesheet" type="text/css"
+			th:href="@{/css/service-center.css}">
+		<link rel="stylesheet" type="text/css" th:href="@{/css/Login.css}">
+		<link th:href="@{/css/sb-admin-2.css}" rel="stylesheet" type="text/css">
+	</th:block>
 
+
+	<th:block layout:fragment="scripts">
+		<script th:src="@{/scripts/main.js}"></script>
+	</th:block>
 </body>
 </html>

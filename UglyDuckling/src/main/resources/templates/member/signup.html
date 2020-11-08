@@ -1,14 +1,52 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorator="layout/basic">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <meta charset="utf-8">
-<th:block layout:fragment="title">
-	<title>Login</title>
-</th:block>
+	<head>
+	<title>회원 가입</title>
+	
+	<link th:href="@{/css/Login.css}" rel="stylesheet">
+	<link th:href="@{/css/sb-admin-2.css}" rel="stylesheet">
+	<script>
+		function check_register(){
+			if(document.register_form.id.value == ""){
+				alert("아이디를 입력해주세요");
+				document.register_form.id.focus();
+				exit();
+			}
+			if(document.register_form.name.value == ""){
+				alert("별명을 입력해주세요");
+				document.register_form.name.focus();
+				exit();
+			}
+			if(document.register_form.email.value == ""){
+				alert("이메일을 입력해주세요");
+				document.register_form.email.focus();
+				exit();
+			}
+			if(document.register_form.password.value == ""){
+				alert("비밀번호를 입력해주세요");
+				document.register_form.password.focus();
+				exit();
+			}
+			if(document.register_form.password2.value == ""){
+				alert("비밀번호 재확인을 입력해주세요");
+				document.register_form.password2.focus();
+				exit();
+			}
+			if(document.register_form.password.value != document.register_form.password2.value){
+				alert("비밀번호가 서로 일치하지 않습니다.");
+				document.register_form.password.focus();
+				exit();
+			}
+			document.register_form.submit();
+			
+		}
+	
+	
+	</script>
+</head>
 
-
-<th:block layout:fragment="content">
+<body>
 	<div class="container">
 
 		<div class="card o-hidden border-0 shadow-lg my-5">
@@ -18,8 +56,8 @@
 
 					<div
 						class="col-lg-5 d-none d-lg-block bg-gradient-primary sidebar-dark">
-						<div class="a text-center">
-							<a href=""><img th:src="@{/img/ugly-duckling.png}" alt=""></a>
+						<div class="a text-center vertical-center">
+							<a href="" class=""><img th:src="@{/img/ugly-duckling.png}" alt=""></a>
 						</div>
 					</div>
 
@@ -29,7 +67,7 @@
 							<div class="text-center">
 								<h1 class="h4 text-green mb-4">Register</h1>
 							</div>
-							<form class="user" th:action="@{/member/signup.do}" method="post">
+							<form class="user" name="register_form" th:action="@{/member/signup.do}" method="post">
 								<div class="form-group row">
 									<div class="col-sm-6 mb-3 mb-sm-0">
 										<input type="text" class="form-control form-control-user"
@@ -51,10 +89,10 @@
 									</div>
 									<div class="col-sm-6">
 										<input type="password" class="form-control form-control-user"
-											id="exampleRepeatPassword" placeholder="비밀번호 재확인">
+											id="exampleRepeatPassword" name="password2" placeholder="비밀번호 재확인">
 									</div>
 								</div>
-								<input type="submit" class="btn btn-primary btn-user btn-block">
+								<input type="button" class="btn btn-primary btn-user btn-block" value="제출" onClick="check_register()">
 
 							</form>
 							<hr>
@@ -70,12 +108,7 @@
 			</div>
 		</div>
 	</div>
-</th:block>
+	</body>
 
-<th:block layout:fragment="css">
-	<link th:href="@{/css/signup.css}" rel="stylesheet">
-</th:block>
 
-<th:block layout:fragment="script">
-</th:block>
 </html>

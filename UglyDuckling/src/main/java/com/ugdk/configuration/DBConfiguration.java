@@ -43,8 +43,7 @@ public class DBConfiguration {
 		SqlSessionFactoryBean factoryBean = new SqlSessionFactoryBean();
 		factoryBean.setDataSource(dataSource());
 		factoryBean.setMapperLocations(applicationContext.getResources("classpath:/mappers/**/*Mapper.xml"));
-		factoryBean.setTypeAliasesPackage("com.ugdk.*.domain");
-		factoryBean.setConfiguration(mybatisConfg());
+		factoryBean.setConfigLocation(applicationContext.getResource("classpath:mybatis-config.xml"));
 		return factoryBean.getObject();
 	}
 
@@ -54,7 +53,7 @@ public class DBConfiguration {
 	}
 
 	@Bean
-	@ConfigurationProperties(prefix = "mybatis.configuration")
+	@ConfigurationProperties(prefix = "mybatis")
 	public org.apache.ibatis.session.Configuration mybatisConfg() {
 		return new org.apache.ibatis.session.Configuration();
 	}

@@ -90,11 +90,6 @@ html{
   background-color:rgb(230, 230, 230);
 }
 
-.status-message-box:nth-child(2){
-  margin: 30px 10px 10px 10px;
-  text-align:right;
-}
-
 .status-go-btn{
   padding:5%;
   text-align:right;
@@ -107,7 +102,7 @@ html{
 }
 
 .status-go-btn a, .task-submit-go a{
-  color:white;
+  color:white !important;
 }
 
 .class-task-message-box{
@@ -129,6 +124,13 @@ html{
 }
 
 
+.content-box {
+	width:inherit;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	word-wrap:normal;
+	overflow:hidden;
+}
 
 @media(max-width:990px){
   html{

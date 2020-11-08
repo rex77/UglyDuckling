@@ -1,5 +1,6 @@
 package com.ugdk.lecture.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import com.ugdk.lecture.domain.AssignmentDTO;
@@ -19,4 +20,6 @@ public interface LectureService {
 	public ProgressDTO getProgressInfo(int unitId, int contentId, String memberId);
 	
 	public boolean updateProgressInfo(ProgressDTO progressDTO);
+	
+	public boolean updateLastProgress(String id, int nextUnit);
 }

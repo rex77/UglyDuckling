@@ -7,7 +7,7 @@
 }
 
 .a img{
-  vertical-align:middle;
+  vertical-align:middle !important;
   width:80%;
 }
 
@@ -22,82 +22,97 @@
 
 
 .text-green{
-  font-size:30px;
+  font-size:30px !important;
   color:#16a085;
-  font-weight:800;
+  font-weight:700 !important;
 }
 
 .bg-gray{
-  background-color:#858796;
+  background-color:#858796 !important;
 }
 
 form.user .form-control-user{
-    border-radius: 0.3rem;
+    border-radius: 0.3rem !important;
 }
 
 .form-control:focus {
-  color: #6e707e;
-  background-color: #fff;
-  border-color: #bac8f3;,
-  outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(22,159,132, 0.25);
+  color: #6e707e !important;
+  background-color: #fff !important;
+  border-color: #bac8f3 !important;
+  outline: 0 !important;
+  box-shadow: 0 0 0 0.2rem rgba(22,159,132, 0.25) !important;
 
 }
 
 .custom-control-input:checked ~ .custom-control-label::before {
-  color: #fff;
-  border-color: #16a085;
-  background-color: #16a085;
+  color: #fff !important;
+  border-color: #16a085 !important;
+  background-color: #16a085 !important;
 }
 
 .custom-control-input:focus ~ .custom-control-label::before {
-  box-shadow: 0 0 0 0.2rem rgba(22,159,132, 0.25);
+  box-shadow: 0 0 0 0.2rem rgba(22,159,132, 0.25) !important;
 }
 
 .btn-primary {
-  color: #fff;
-  background-color: #16a085;
-  border-color: #16a085;
+  color: #fff !important;
+  background-color: #16a085 !important;
+  border-color: #16a085 !important;
 }
 
 .btn-primary:hover {
-  color: #fff;
-  background-color: #137e69;
-  border-color: #137e69;
+  color: #fff !important;
+  background-color: #137e69 !important;
+  border-color: #137e69 !important;
 }
 
 .btn-primary:focus, .btn-primary.focus {
-  color: #fff;
-  background-color: #137e69;
-  border-color: #137e69;
-  box-shadow: 0 0 0 0.2rem rgba(19,126,105, 0.5);
+  color: #fff !important;
+  background-color: #137e69 !important;;
+  border-color: #137e69 !important;
+  box-shadow: 0 0 0 0.2rem rgba(19,126,105, 0.5) !important;
 }
 
 .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
 .show > .btn-primary.dropdown-toggle {
-  color: #fff;
-  background-color: #137e69;
-  border-color: #137e69;
+  color: #fff !important;
+  background-color: #137e69 !important;
+  border-color: #137e69 !important;
 }
 
 .btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus,
 .show > .btn-primary.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.2rem rgba(19,126,105, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(19,126,105, 0.5) !important;
 }
 
 
 form.user .btn-user {
-  border-radius:0.3rem;
+  border-radius:0.3rem !important;
 }
 
 .service-center-btn, .login-btn{
-  margin-top:0.3rem;
+  margin-top:0.3rem !important;
 }
 
 .register-btn {
-  margin-top:1rem;
+  margin-top:1rem !important;
 }
 
 .service-center-btn a, .register-btn a, .login-btn a{
-  color:black;
+  color:black !important;
+}
+
+
+
+
+
+.wrap-login100 {
+  padding:35px 35px 30px 35px;
+}
+.form-control{
+  border-radius: 4px !important;
+}
+
+.input-group div{
+  width:40%;
 }
