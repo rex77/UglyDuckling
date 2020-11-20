@@ -3,7 +3,7 @@
 }
 
 .write-title{
-  font-size:26px;
+  font-size:2.4rem;
   font-weight:900;
   padding:1%;
 }
@@ -31,7 +31,7 @@
 .check-notice, .check-secret{
   margin: -1% 1% 0 2%;
   color:black;
-  font-size:12px;
+  font-size:0.8rem;
 }
 
 .nick{
@@ -45,7 +45,7 @@
 input[type="text"]{
   padding:10px;
   height:38px;
-  font-size:14px !important;
+  font-size:1.0rem !important;
   line-height: 18px;
   resize:none;
   outline:none;

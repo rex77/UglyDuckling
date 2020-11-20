@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href='http://www.openhiun.com/hangul/nanumbarungothic.css' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+  <link rel="stylesheet" th:href="@{/css/quiz02_default.css}">
+  <link rel="stylesheet" th:href="@{/css/quiz02_reset.css}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <title>Unit5 심화문제</title>
+</head>
+<body>
+  <div id="content">
+    <p id="title">5. 유머 사용에 대한 규칙</p>
+    <img id="logo" th:src="@{/img/ugly-duckling-light.png}" alt="">
+    <hr id="line">
+    <p id="quiz">유머에 대한 반응을 보고 유머의 정도를 조절해보세요.</p>
+    <div>
+      <p id="script">
+        영희 : 민지야 안녕! 오랜만에 본다<br>
+        민지 : 응, 그러게. 아, 너 발 밑에!<br>
+        영희 : (발 밑을 바라본다.)<br>
+        민지 : (키득키득 웃으며) 인사 잘 한다~<br>
+        영희 : 하하...
+      </p>
+    </div>
+    <form action="post">
+      <textarea name="" id="answer" placeholder="여기에 답을 입력하세요!"></textarea>
+      <input type="button" id="submit" value="제출하기" onclick="location.href='/lecture/unit5/quiz02/2'">
+    </form>
+  </div>
+</body>
+</html>

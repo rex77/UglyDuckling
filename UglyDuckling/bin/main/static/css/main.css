@@ -10,13 +10,14 @@ html{
 }
 
 .my-main-progress-title{
-  font-size:1.8rem;
+  font-size:2.4rem;
   font-weight:900;
   color:rgb(62, 118, 208);
 }
 
 .my-sub-progress-title{
-  font-size:0.9375rem;
+  font-size:1.2rem;
+  font-weight:600;
   color:black;
 }
 
@@ -28,21 +29,21 @@ html{
 
 .progress-sub-box{
   background-color: rgb(245, 245, 245);
-  min-height:55vh;
+  min-height:40vh;
   margin:10px;
 }
 
 
 .progress-box-title{
   padding:3%;
-  font-size:1.5rem;
+  font-size:1.8rem;
   font-weight:900;
   color:#16a085;
 }
 
 
 .progress-section{
-  margin:3% 0 0 0;
+  margin:3% 0 6% 0;
 }
 
 .progress{
@@ -57,7 +58,7 @@ html{
 }
 
 .progress-text{
-  font-size: 12px;
+  font-size: 0.9rem;
   font-weight:600;
   margin: 0.5% 0 2% 0;
 }
@@ -65,8 +66,8 @@ html{
 
 
 .week-goal{
-  padding: 0 3% 3% 3%;
-  font-size:1.05rem;
+  padding: 3%;
+  font-size:1.2rem;
   font-weight:bold;
 }
 
@@ -75,16 +76,16 @@ html{
 }
 
 .goal-message-box {
-  padding:5px;
+  padding:5%;
   margin:2% 5% 5% 5%;
-  font-size:0.875rem;
-  font-weight:600;
+  font-size:1rem;
+  font-weight:500;
   background-color:rgb(230, 230, 230);
 }
 
 .status-message-box{
-  padding:5px;
-  margin:10px;
+  padding:3%;
+  margin:5%;
   font-size:0.875rem;
   font-weight:600;
   background-color:rgb(230, 230, 230);
@@ -108,12 +109,12 @@ html{
 .class-task-message-box{
   padding:5px;
   margin:10px;
-  font-weight:600;
+  font-weight:500;
   background-color: rgb(230, 230, 230);
 }
 
 .task-submit-go{
-  padding: 25px 15px 5px 15px;
+  padding: 60px 15px 5px 15px;
   text-align:right;
 }
 

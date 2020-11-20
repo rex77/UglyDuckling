@@ -87,4 +87,19 @@ public class LectureController extends UiUtils  {
 		return lectureService.updateProgressInfo(progress);
 	}
 
+	@GetMapping(value="/lecture/unit5/quiz02/1")
+	public String quiz02_1(Model model) {
+		return "lecture/unit05_1";
+	}
+	
+	@GetMapping(value="/lecture/unit5/quiz02/2")
+	public String quiz02_2(Model model) {
+		return "lecture/unit05_2";
+	}
+	
+	@GetMapping(value="/lecture/unit5/quiz02/3")
+	public String quiz02_3(Model model) {
+		return "lecture/unit05_3";
+	}
+
 }

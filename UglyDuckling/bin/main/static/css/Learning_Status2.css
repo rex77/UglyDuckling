@@ -10,13 +10,14 @@ html{
 }
 
 .my-main-progress-title{
-  font-size:1.8rem;
+  font-size:2.4rem;
   font-weight:900;
   color:rgb(62, 118, 208);
 }
 
 .my-sub-progress-title{
-  font-size:0.9375rem;
+  font-size:1.2rem;
+  font-weight:600;
   color:black;
 }
 
@@ -27,7 +28,7 @@ html{
 }
 
 .progress-sub-box{
-  min-height:55vh;
+  min-height:42vh;
   margin:10px;
   background-color:white;
   border: 3px solid rgb(235, 235, 235);

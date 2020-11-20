@@ -31,7 +31,7 @@ p{
 }
 
 .post-title{
-  font-size:22px;
+  font-size:1.3rem;
   font-weight: 900;
 }
 
@@ -55,17 +55,17 @@ ul{
 }
 
 .nick-box, .comment-nick-box{
-  font-size:15px;
+  font-size:1rem;
   font-weight:bold;
 }
 
 .info-box, .comment-info-box{
-  font-size:12px;
+  font-size:0.8rem;
   color:gray;
 }
 
 .comment-text-box{
-  font-size:15px;
+  font-size:1rem;
 }
 
 .hrr{
@@ -81,7 +81,9 @@ ul{
 }
 
 .comment-writer-name{
+
   padding: 0 0 0 2px;
+  font-size:1.2rem;
   color:black;
   font-weight: 500;
 }
@@ -92,7 +94,7 @@ ul{
   outline:none;
   width:100%;
   height:70px;
-  font-size:14px;
+  font-size:0.8rem;
   overflow: visible;
   resize:none;
 }
@@ -100,7 +102,7 @@ ul{
 .comment-counter{
   float:right;
   color:#aaa;
-  font-size:13px;
+  font-size:0.8rem;
 }
 
 .comment-attach{
@@ -110,7 +112,7 @@ ul{
 .comment-enter{
   float:right;
   color:#aaa;
-  font-size:14px;
+  font-size:1rem;
   padding: 0 10px;
 }
 

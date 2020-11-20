@@ -1,0 +1,90 @@
+#content {
+  width: 1280px;
+  height: 720px;
+}
+
+#title {
+  position: absolute;
+  top: 80px;
+  left: 50px;
+  font-size: 55px;
+  font-family: 'Do Hyeon', sans-serif;
+}
+
+#line {
+  position: absolute;
+  top: 150px;
+  left: 50px;
+  width: 1150px;
+  border: 3px solid #FFA726;
+}
+
+#logo {
+  position: absolute;
+  top: -45px;
+  right: 50px;
+  width: 500px;
+}
+
+#quiz {
+  position: absolute;
+  top: 200px;
+  left: 100px;
+  font-size: 35px;
+  font-family: 'Nanum Barun Gothic', sans-serif;
+  line-height: 130%;
+}
+
+#script {
+  position: absolute;
+  top: 280px;
+  left: 150px;
+  font-size: 25px;
+  line-height: 130%;
+  width : 970px;
+  padding: 30px 50px;
+  box-sizing: border-box;
+  border: 5px solid #FFA726;
+  border-radius: 50px;
+}
+
+#script1 {
+  position: absolute;
+  top: 320px;
+  left: 150px;
+  font-size: 25px;
+  line-height: 130%;
+  width : 970px;
+  padding: 30px 50px;
+  box-sizing: border-box;
+  border: 5px solid #FFA726;
+  border-radius: 50px;
+}
+
+#answer {
+  position: absolute;
+  top: 550px;
+  left: 150px;
+  font-size: 23px;
+  line-height: 130%;
+  width : 970px;
+  height: 180px;
+  box-sizing: border-box;
+  border: 5px solid #3F51B5;
+  resize: none;
+}
+
+#submit {
+  position: absolute;
+  top: 750px;
+  left: 500px;
+  width: 280px;
+  height: 75px;
+  font-size: 30px;
+  padding: 0;
+  margin: 0;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  border: 5px solid #FFA726;
+  border-radius: 20px;
+}

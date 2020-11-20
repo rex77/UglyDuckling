@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href='http://www.openhiun.com/hangul/nanumbarungothic.css' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+  <link rel="stylesheet" th:href="@{/css/quiz02_default.css}">
+  <link rel="stylesheet" th:href="@{/css/quiz02_reset.css}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="/static/common.js"></script>
+  <title>Unit5 심화문제</title>
+</head>
+<body>
+  <div id="content">
+    <p id="title">5. 유머 사용에 대한 규칙</p>
+    <img id="logo" th:src="@{/img/ugly-duckling-light.png}" alt="">
+    <hr id="line">
+    <p id="quiz">다음의 유머를 사용한 예시 대화를 보고 잘한 점을 모두 찾아<br>
+      골라보세요.</p>
+    <div>
+      <p id="script1">
+        혜성 : (문자를 확인하곤) 아, 택배 도착했다네.<br>
+        혜인 : 무슨 택배인데?<br>
+        혜성 : 가방 새로 샀거든.<br>
+        혜인 : 가방이 왔으니 어서 집에 가봥~
+      </p>
+    </div>
+    <form action="post">
+      <textarea name="" id="answer" placeholder="여기에 답을 입력하세요!"></textarea>
+      <input type="reset" id="submit" value="제출하기">
+    </form>
+  </div>
+</body>
+</html>
